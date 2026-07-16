@@ -1,0 +1,2 @@
+{{ $rss_file := ( partial "func-rss-feed.html" . ) }}
+{{ ref . (printf "%s" .Site.Params.articles_path) }}{{ $rss_file }}
