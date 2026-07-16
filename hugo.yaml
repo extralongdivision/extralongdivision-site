@@ -1,0 +1,85 @@
+baseURL: https://extralongdivision.codeberg.org/
+locale: en-us
+title: Extra Long Division
+theme: ["PaperMod"]
+
+enableRobotsTXT: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+params:
+  
+  showFullTextInRSS: true
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    # safari_pinned_tab: "<link / abs url>"
+
+  label:
+    text: "Extra Long Division"
+    icon: /favicon.ico
+    iconHeight: 35
+
+  profileMode:
+    enabled: true
+    subtitle: "I make things. Sometimes they work."
+    imageUrl: "prof-pic.webp" # optional
+    imageTitle: "I have a computer!" # optional
+    imageWidth: 128 # custom size
+    imageHeight: 128 # custom size
+
+  socialIcons: # optional
+    - name: "codeberg"
+      url: "https://codeberg.org/extralongdivision/"
+    #- name: "email"
+    #  url: "helloworld@extralongdivision.com"
+  
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+  
+  # Custom variables to use everywhere
+  articles_path: "articles/"
+  projects_path: "projects/"
+  emdash_slug: "idgaf-im-still-using-the-emdash"
+  jargon_slug: "please-define-your-jargon"
+
+menu:
+  main:
+    #- identifier: projects
+    #  name: Projects
+    #  url: /projects/
+    #  weight: 1
+    - identifier: articles
+      name: Articles
+      url: articles/
+      weight: 2
+    - identifier: tags
+      name: Tags
+      url: tags/
+      weight: 3
+    - identifier: RSS
+      name: RSS
+      url: rss/
+      weight: 4
+    - identifier: search
+      name: Search
+      url: search/
+      weight: 5
