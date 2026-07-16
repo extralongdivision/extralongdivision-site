@@ -13,7 +13,7 @@ jobs:
       - run: |
           wget -q https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_0.164.0_linux-amd64.tar.gz
           tar -xzf hugo_0.164.0_linux-amd64.tar.gz
-          hugo build
+          ./hugo build
       # - if: ${{ forgejo.event_name == 'push' && forgejo.event.ref == 'refs/heads/main' }}
       # uses: https://codeberg.org/git-pages/action@v2
       - uses: https://codeberg.org/git-pages/action@v2
