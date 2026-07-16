@@ -8,6 +8,8 @@ Below is a curated list of RSS[^1] feeds. In general, appending `index.xml` to t
 
 - [Articles]({{< ref-articles-rss-feed >}})
 
+- [Everything]({{< ref-archive-rss-feed >}})
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: really simple syndication; if you're on this page you probably already know what that is :)
