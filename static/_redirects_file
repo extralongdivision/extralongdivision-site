@@ -1,2 +1,4 @@
 # For Codeberg Git-Pages server https://docs.codeberg.org/codeberg-pages/using-custom-domain/#deploying-to-versions-of-your-domain-both-with-and-without-www.
-//www.extralongdivision.com/* https://extralongdivision.com//:splat 302!
+http://www.extralongdivision.com/* https://extralongdivision.com/:splat 302!
+https://www.extralongdivision.com/* https://extralongdivision.com/:splat 302!
+www.extralongdivision.com/* https://extralongdivision.com/:splat 302!
