@@ -1,4 +1,5 @@
-name: Publish
+### Deploys to "www" sub-domain so redirects work
+name: Publish-WWW
 on:
   push:
     branches:
@@ -19,7 +20,7 @@ jobs:
           ./hugo build
       - uses: https://codeberg.org/git-pages/action@v2
         with:
-          site: https://extralongdivision.com/
+          site: https://www.extralongdivision.com/
           server: codeberg.page
           token: ${{ forge.token }}
           source: public/
