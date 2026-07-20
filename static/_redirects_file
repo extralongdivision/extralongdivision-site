@@ -2,3 +2,6 @@
 http://www.extralongdivision.com/* https://extralongdivision.com/:splat 301!
 https://www.extralongdivision.com/* https://extralongdivision.com/:splat 301!
 www.extralongdivision.com/* https://extralongdivision.com/:splat 301!
+
+# "linktree" redirect
+/id https://extralongdivision.com/ 302
