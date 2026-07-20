@@ -1,10 +1,10 @@
 ---
-date: '2026-07-19T23:09:26-07:00'
+date: '2026-07-20T23:09:26-07:00'
 draft: true
 title: 'Content Philosophy'
 #
 # EDIT THESE
-# 
+#
 
 author: 'Extra Long Division'
 tags: ['opinion', 'content-creation']
@@ -17,9 +17,9 @@ canonicalURL: 'https://extralongdivision.com/articles/content-philosophy/'
 
 # author: ["Me", "You"] # multiple authors
 
-# 
+#
 # Optional
-# 
+#
 
 showToc: true
 TocOpen: false
@@ -58,8 +58,8 @@ Now, there are plenty of cars salesmen with integrity. Likewise, there are count
 
 ## My Competitive Advantage
 
-> In simple terms, a competitive advantage is a unique attribute or 
-> capability that enables a business to stand out from its competitors in 
+> In simple terms, a competitive advantage is a unique attribute or
+> capability that enables a business to stand out from its competitors in
 > the marketplace. - *Investopedia*
 
 Content creation is a saturated field. My space, the maker community, is particularly saturated by people much smarter, more credentialed, and with much _much_ more resources than me. Despite the glut of people in this space, there is an area I can compete in: well documented projects.
@@ -146,7 +146,7 @@ Communities are about the collective, not the creator. Communities are resilient
 
 It does not matter what big tech platform rises or falls [—]({{< relref-emdash-url >}}) people will still make things. If I'm a welcome member, I can follow makers wherever they decide to hangout.
 
-Large followings restrict creator freedom too. Remember, it is the follower, not content creator, that has the power. Robert Rich, a trailblazer in the ambient, trance music scene with albums dating back to the 80s, described this exact phenomenon in 2008; before Instagram or the Facebook like existed. 
+Large followings restrict creator freedom too. Remember, it is the follower, not content creator, that has the power. Robert Rich, a trailblazer in the ambient, trance music scene with albums dating back to the 80s, described this exact phenomenon in 2008; before Instagram or the Facebook like existed.
 
 > If we play to the same 1000 people, and keep doing the same basic thing, eventually the Fans become sated and don’t feel a need to purchase this year’s model, when it’s almost identical to last year’s but in a slightly different shade of black. Yet when the Fans’ Favorite Artist starts pushing past the comfort zone of what made them True Fans to begin with, they are just as likely to move their attention onwards within the box that makes them comfortable. Damned if you do or don’t...When an artist relies on such intense personal commitmen[sic] from such a small population, it’s like an animal that relies solely upon the fruit of one tree to survive. This is a recipe for extinction.
 
@@ -158,10 +158,10 @@ Joining a community doesn't have this problem. Communities have expectations, bu
 
 #### Moderation
 
-Growing a following is not a new concept, nor are its problems. As far back as 2004, Austin Whitney encouraged musicians to build a small group of die hard fans. 
+Growing a following is not a new concept, nor are its problems. As far back as 2004, Austin Whitney encouraged musicians to build a small group of die hard fans.
 
-> I think a new definition of success will be the artist who has 5000 
-> passionate fans worldwide who spend 20-30 dollars a year on your 
+> I think a new definition of success will be the artist who has 5000
+> passionate fans worldwide who spend 20-30 dollars a year on your
 > creative output.
 
 Some people like Pat Flynn and Kevin Kelly advocate for growing a group of 1,000 dedicated fans. They admit that you'll need several casual fans for every super fan gained. This is similar to amassing the large following described in the last section. It also has the same pitfalls.
@@ -182,12 +182,12 @@ I mentioned Robert Rich earlier and quoted his response to Kevin Kelly's concept
 
 There is much to ponder in Robert's commentary, but especially relevant to makers is the isolation.
 
-> The sort of artist who survives at the long tail is the sort who would 
-> be happy doing nothing else, who willingly sacrifices security and 
-> comfort for the chance to communicate something meaningful, hoping to 
-> catch the attention of those few in the world who seek what they also 
-> find meaningful. It’s a somewhat solitary existence, a bit like a 
-> lighthouse keeper throwing a beam out into the darkness, in faith that 
+> The sort of artist who survives at the long tail is the sort who would
+> be happy doing nothing else, who willingly sacrifices security and
+> comfort for the chance to communicate something meaningful, hoping to
+> catch the attention of those few in the world who seek what they also
+> find meaningful. It’s a somewhat solitary existence, a bit like a
+> lighthouse keeper throwing a beam out into the darkness, in faith that
 > this action might help someone unseen.
 
 To survive being a maker, you must enjoy making. We spend most of our time designing, troubleshooting, and iterating on a project that only exists in our head. It takes months or years of work before anyone else sees it.
@@ -206,16 +206,16 @@ I need to be able to clock out from work. Otherwise, I'll burn out. My content w
 
 Once again, Robert Rich prophesied the content treadmill in 2008.
 
-> In reality the life of a “microcelebrity” resembles more the fate of 
-> Sisyphus, whose boulder rolls back down the mountain every time he 
-> reaches the summit. After every tour I feel exhausted but empowered by 
+> In reality the life of a “microcelebrity” resembles more the fate of
+> Sisyphus, whose boulder rolls back down the mountain every time he
+> reaches the summit. After every tour I feel exhausted but empowered by
 > the thought that a few people really care a lot about this music. Yet, a
->  few months later all is quiet again and CD/downoad[sic] sales slow down 
+>  few months later all is quiet again and CD/downoad[sic] sales slow down
 > again. If I take the time to concentrate for a year on what I hope to be
->  a breakthrough album, that time of silence widens out into a gaping 
-> hole and interest seems to fade. When I finally do release something 
-> that I feel to be a bold new direction, I manage only to sell it to the 
-> same 1,000 True Fans. The boulder sits back at the bottom of the 
+>  a breakthrough album, that time of silence widens out into a gaping
+> hole and interest seems to fade. When I finally do release something
+> that I feel to be a bold new direction, I manage only to sell it to the
+> same 1,000 True Fans. The boulder sits back at the bottom of the
 > mountain and it’s time to start rolling it up again.
 
 If you are making content for a community you built, you are Sisyphus. Creating the content is pushing the boulder to the summit. But unlike a CD, content is ephemeral. It's seen for a day and then becomes obscure instantly. Your boulder tumbles down to the valley and you must start again.
@@ -248,18 +248,18 @@ Once again, other people have better defined my strategy: [POSSE](https://indiew
 
 This has many benefits. One of them is actually reaching people interested in your content. Ironically, having millions of followers doesn't mean they'll see anything you post. Robert Rich once again prophetically predicted this back in 2008.
 
-> The internet can also give us tools more narrowly to target specific 
+> The internet can also give us tools more narrowly to target specific
 > demographics and to strengthen those assumptions that prevent acceptance
->  of new ideas, nudging people towards algorithmically determined tastes 
-> or styles. Companies can use demographic models and track people’s 
-> search patterns to pander to their initial tastes and to strengthen 
-> those tastes, rather than broaden their horizons. This problem doesn’t 
-> lie within the technology of the internet, but within the realities of 
+>  of new ideas, nudging people towards algorithmically determined tastes
+> or styles. Companies can use demographic models and track people’s
+> search patterns to pander to their initial tastes and to strengthen
+> those tastes, rather than broaden their horizons. This problem doesn’t
+> lie within the technology of the internet, but within the realities of
 > capitalism and human psychology.
 
 Publishing content on a platform you don't control is a recipe for disaster. Owning distribution is a requirement. Otherwise, an algorithm change can make it impossible for you to reach your audience.
 
-The rest of this section will detail where I'll post and what content will go on each platform. I'll start where the project documentation will go and progressively move to where the "ads", as described earlier, will be posted. 
+The rest of this section will detail where I'll post and what content will go on each platform. I'll start where the project documentation will go and progressively move to where the "ads", as described earlier, will be posted.
 
 It's important to note that different social media platforms have different personalities. The same content on TikTok gets very different comments on Instagram. Also, new platforms are constantly popping up and dying. I've organized my content by category, not platform. While I intend to cross-post, some platforms I understand more than others. This is all new to me, so I'll continuously learn as the journey goes.
 
