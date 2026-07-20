@@ -3,9 +3,7 @@ date: '2026-07-19T23:09:26-07:00'
 draft: true
 title: 'Content Philosophy'
 #
-
 # EDIT THESE
-
 # 
 
 author: 'Extra Long Division'
