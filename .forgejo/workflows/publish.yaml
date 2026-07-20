@@ -16,10 +16,10 @@ jobs:
           echo "Uncompressing Hugo..."
           tar -xzf hugo_0.164.0_linux-amd64.tar.gz
           echo "Building project..."
-          echo $(./hugo version)
           ./hugo build
       - uses: https://codeberg.org/git-pages/action@v2
         with:
-          site: https://${{ forge.repository_owner }}.codeberg.page/
+          site: https://extralongdivision.com/
+          server: codeberg.page
           token: ${{ forge.token }}
           source: public/
