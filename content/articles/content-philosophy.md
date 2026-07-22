@@ -1,6 +1,6 @@
 ---
-date: '2026-07-20T23:09:26-07:00'
-draft: true
+date: '2026-07-21T23:09:26-07:00'
+draft: false
 title: 'Content Philosophy'
 #
 # EDIT THESE
@@ -8,11 +8,8 @@ title: 'Content Philosophy'
 
 author: 'Extra Long Division'
 tags: ['opinion', 'content-creation']
-
 # description: 'I forgot to fill out the description.'
-
 # URL is based off the filename
-
 canonicalURL: 'https://extralongdivision.com/articles/content-philosophy/'
 
 # author: ["Me", "You"] # multiple authors
@@ -84,7 +81,7 @@ The bad documentation problem is compounded by a recent trend: the dominant medi
 
 Video has a place (more on that later), but video monetization has led to absurd content. I.e [this 11 hour YouTube course on running an Amazon fulfillment business](https://www.youtube.com/watch?v=LegZUuOVZ9Y&pp=ygUVZnJlZSBlY29tbWVyY2UgY291cnNl). It's not a series of videos, it's an 11 hour block. The ability to jump to sections is irrelevant to my gripe. A blog post could be searched for by keyword, updated as certain sections go out-of-date, added to as new information is discovered, etc. But since this is a video, the whole thing has to be remade regularly. Which is the point. This particular creator makes a new video every year because it's part of their content cycle. Education is a secondary goal. The primary goal is to consistently publish new content.
 
-But documentation's primary goal is to inform. Docs are a reference. Imagine if you had to read through your car's manual from start to finish in order to change your tire. Instead, if you have an inquiry, go to the relevant section and read the portion you're interested in. Skipping through a video or podcast is not the solution!
+But documentation's primary goal is to inform. Docs are a reference. Imagine if you had to read your car's manual from start to finish in order to change your tire. Instead, you go to the relevant section and read the portion you're interested in whenever you have an inquiry. Skipping through a video or podcast is not the solution!
 
 In the digital age, the best medium for technical documentation is rich text. Not video. Not audio. Text and photo. Nothing is better. It's trivial to update text, but videos require shooting a whole new one. It's trivial to search text for the content you want. With video, you're lucky if AI[^6] vomited out a poorly converted transcript. For documentation, rich text >> audio/video. Period.
 
@@ -102,7 +99,7 @@ For me, polished demos/video updates on social media platforms will be ads for m
 
 The United Nations wrote this document as a guiding principle for nation states, not individuals. It is still relevant, though. As said earlier, a cornerstone of the maker community is the ability to share and learn from others' projects. What's beautiful about makers is our community thrives in an environment where creator share of profits consistently shrink.
 
-Now a common-business model is stashing articles, design files, behind-the-scenes content, etc. behind a pay wall. Do not mistake this remark as an argument against makers earning money. I believe the opposite. You deserve compensation for your work. But if every maker puts the details of their project behind a paywall, we reduce our ability to learn from each other.
+Now, a common-business model is stashing articles, design files, behind-the-scenes content, etc. behind a pay wall. Do not mistake this remark as an argument against makers earning money. I believe the opposite. You deserve compensation for your work. But if every maker puts the details of their project behind a paywall, we reduce our ability to learn from each other.
 
 A shining counterexample is [Kevin Macleod](http://incompetech.com/). You've probably heard his music without knowing it. Kevin has thousands of royalty-free music available on his website. All he asks for is credit. Because of that, not in-spite of, he has credits in award-winning films and TV shows.
 
@@ -134,9 +131,9 @@ The difference between these goals is subtle but important. As said earlier, a c
 
 Notice how gaining a large following is not my goal. In fact, I think a large following is a trap.
 
-The standard business model for tech services in general, not just social media, is capture the attention of as many people as possible, often by used-car-salesmen-y means, then sell their attention to advertisers. This actually gives the follower, not tech companies, more power.
+The standard business model for tech services in general, not just social media, is capture the attention of as many people as possible, often by used-car-salesmen-y means, then sell their attention to advertisers. This actually gives the user, not tech companies, more power.
 
-A follower can pick and choose who to give their attention to on a whim. In the copycat world of tech, there are plenty of options to choose from. This is why platforms [ensh*ttify](https://www.merriam-webster.com/slang/enshittification). They hold their users' attention hostage to ensure their real customers, advertisers, get their money's worth. Eventually, the platform hits a critical mass of ensh*ttification and users migrate somewhere else. It happened to LiveJournal, Digg, Facebook, Vine. The list is endless.
+An user can pick and choose who to give their attention to on a whim. In the copycat world of tech, there are plenty of options to choose from. This is why platforms [ensh*ttify](https://www.merriam-webster.com/slang/enshittification). They hold their users' attention hostage to ensure their real customers, advertisers, get their money's worth. Eventually, the platform hits a critical mass of ensh*ttification and users migrate somewhere else. It happened to LiveJournal, Digg, Facebook, Vine. The list is endless.
 
 The same happens to content creators. No matter how they spin it, their following is a customer base. Content creators falling off is akin to users migrating from social media platforms. Your following can revolt in multiple ways. Perhaps you don't post as much as they want. Perhaps you're posting different content than what they originally followed you for. Perhaps you're not reciprocating the para-social relationship they've formed with you. Either way, if your following leaves, your career is over.
 
@@ -218,7 +215,7 @@ Once again, Robert Rich prophesied the content treadmill in 2008.
 > same 1,000 True Fans. The boulder sits back at the bottom of the
 > mountain and it’s time to start rolling it up again.
 
-If you are making content for a community you built, you are Sisyphus. Creating the content is pushing the boulder to the summit. But unlike a CD, content is ephemeral. It's seen for a day and then becomes obscure instantly. Your boulder tumbles down to the valley and you must start again.
+If you are making content for a community you built, you are Sisyphus. Creating the content is pushing the boulder to the summit. But unlike a CD[^8], content is ephemeral. It's seen for a day and then becomes obscure instantly. Your boulder tumbles down to the valley and you must start again.
 
 But you are not alone if you join an existing community. Multiple people have pushed a boulder up the mountain before you. People will help you push your boulder. You may help someone else push their boulder. Someone might even take your boulder and push it to places you never imagined.
 
@@ -279,6 +276,8 @@ The main destinations for developer blogs are Medium, Substack, Instructables, H
 
 I have no idea how Substack works, so I'll figure it out as I go. I might use Patreon updates as a syndication point for developer logs too. We'll see.
 
+Adafruit Playground is an honorable mention. I'll experiment posting there as well.
+
 The Codeberg/GitHub pages will be the source-of-truth for detailed project updates, then I'll cross-post to the sites mentioned above.
 
 I would be remiss not to mention DEV.to. This blogging platform is specifically for programming. The only relevant content I could post would be for firmware and embedded software. I'll probably won't have anything of merit to share there.
@@ -328,3 +327,5 @@ If this was too long for you to read: my content will focus on hobbyist electron
 [^6]: artificial intelligence
 
 [^7]: in real life
+
+[^8]: compact disc,
