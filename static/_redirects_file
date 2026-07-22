@@ -1,7 +1,0 @@
-# For Codeberg Git-Pages server https://docs.codeberg.org/codeberg-pages/using-custom-domain/#deploying-to-versions-of-your-domain-both-with-and-without-www.
-http://www.extralongdivision.com/* https://extralongdivision.com/:splat 301!
-https://www.extralongdivision.com/* https://extralongdivision.com/:splat 301!
-www.extralongdivision.com/* https://extralongdivision.com/:splat 301!
-
-# "linktree" redirect
-/id https://extralongdivision.com/ 302
