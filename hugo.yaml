@@ -40,8 +40,12 @@ params:
   socialIcons: # optional
     - name: "codeberg"
       url: "https://codeberg.org/extralongdivision/"
-    #- name: "email"
-    #  url: "helloworld@extralongdivision.com"
+    - name: "matrix"
+      url: "https://matrix.to/#/@extralongdivision:matrix.org"
+    - name: "email"
+      url: "mailto:helloworld@extralongdivision.com"
+    - name: rss
+      url: "/rss"
   
   # for search
   # https://fusejs.io/api/options.html
