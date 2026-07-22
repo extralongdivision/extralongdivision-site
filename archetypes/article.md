@@ -40,3 +40,5 @@ UseHugoToc: false
 #    Text: "Suggest Changes" # edit text
 #    appendFilePath: true # to append file path to Edit link
 ---
+
+[Why are there footnotes?]({{< relref-jargon-url >}})
