@@ -31,7 +31,7 @@ params:
 
   profileMode:
     enabled: true
-    subtitle: "I make things. Sometimes they work."
+    subtitle: "I make things. Sometimes they work. Find out if they do (plus other random things) by following me at the links below."
     imageUrl: "prof-pic.webp" # optional
     imageTitle: "I have a computer!" # optional
     imageWidth: 128 # custom size
@@ -45,7 +45,7 @@ params:
     - name: "email"
       url: "mailto:helloworld@extralongdivision.com"
     - name: rss
-      url: "/rss"
+      url: "/rss/"
   
   # for search
   # https://fusejs.io/api/options.html
