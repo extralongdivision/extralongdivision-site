@@ -3,3 +3,4 @@
 
 # "linktree" redirect
 /id https://extralongdivision.com/ 302
+/id/ https://extralongdivision.com/ 302
