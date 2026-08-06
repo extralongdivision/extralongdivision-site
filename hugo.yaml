@@ -13,7 +13,12 @@ outputs:
 
 params:
   
+  env: production
   showFullTextInRSS: true
+
+  mainSections:
+    - articles
+    # - projects TODO
 
   assets:
     # disableHLJS: true # to disable highlight.js
