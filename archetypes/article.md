@@ -41,4 +41,6 @@ UseHugoToc: false
 #    appendFilePath: true # to append file path to Edit link
 ---
 
+{{< eld-byline >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})

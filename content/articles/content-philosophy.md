@@ -312,6 +312,8 @@ I suspect my content philosophy will change over time. Maybe I'll write a follow
 
 If this was too long for you to read: my content will focus on hobbyist electronic projects. What will differentiate me from other makers is ensuring my projects are well documented. My goal is to join the maker community and like-minded off shoots. A large following is an anti-goal. I'll be platform agnostic; focusing on publishing on a domain controlled by me and then syndicating that content to other appropriate channels.
 
+{{< eld-byline >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: printed circuit board assembly

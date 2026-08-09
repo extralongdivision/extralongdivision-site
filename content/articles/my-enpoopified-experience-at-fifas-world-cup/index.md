@@ -211,6 +211,8 @@ This is where I must admit, despite all the effort I went to salvage my wristban
 
 My money is the strongest weapon I have against ensh\*ttification, but I made FIFA's coffers heavier despite the hurdles they made me go through. Perhaps that's the balance companies must make now to maximize profit. Like slowly boiling a frog, FIFA added just enough ensh\*ttification to make me still want to attend their events. Instead of jumping out of the simmering pot, I will gladly save the date for the next tournament. Hopefully, I don't burn.
 
+{{< eld-byline >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: national basketball association

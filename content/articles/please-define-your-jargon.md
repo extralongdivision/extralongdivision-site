@@ -75,4 +75,6 @@ Seasoned web developers didn't need to read the footnote to know what MV3 meant.
 
 Do us all a favor [—]({{< relref-emdash-url >}}) please define your jargon.
 
+{{< eld-byline >}}
+
 [^1]: Google Manifest Version 3

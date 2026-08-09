@@ -42,6 +42,8 @@ We all despise reCAPTCHA, but generative AI and LLMs[^3] are a different beast. 
 
 But I have no one to convince. Even if it is a GPT[^4]-ism, IDGAF[^1] . I will continue to use my beloved em dash until data centers cause the heat death of humanity.
 
+{{< eld-byline >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: I don't give a f*ck
