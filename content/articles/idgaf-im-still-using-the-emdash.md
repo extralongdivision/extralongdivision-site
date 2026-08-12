@@ -32,6 +32,8 @@ ShowRssButtonInSectionTermList: true
 UseHugoToc: false
 ---
 
+{{< written-by-a-human >}}
+
 AI[^2] is ruining writing.
 
 I don't mean how AI slop is polluting the internet. I don't mean [how our reliance on them is degrading our skills](https://www.scientificamerican.com/article/is-ai-ruining-our-skills-early-results-are-in-and-theyre-not-good/). I mean flesh and blood writers avoiding certain patterns to duck AI-use accusations. The most common one: the em dash.
@@ -41,6 +43,8 @@ I don't mean how AI slop is polluting the internet. I don't mean [how our relian
 We all despise reCAPTCHA, but generative AI and LLMs[^3] are a different beast. Job candidates are holding up a hand in front of their face in zoom calls. Students run their essays through AI detection algorithms before submission.
 
 But I have no one to convince. Even if it is a GPT[^4]-ism, IDGAF[^1] . I will continue to use my beloved em dash until data centers cause the heat death of humanity.
+
+{{< eld-byline >}}
 
 [Why are there footnotes?]({{< relref-jargon-url >}})
 

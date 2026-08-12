@@ -41,6 +41,8 @@ UseHugoToc: false
 #    appendFilePath: true # to append file path to Edit link
 ---
 
+{{< written-by-a-human >}}
+
 ## Split.
 
 If you're a dancer, you probably thought of someone, hips to the ground, with their legs parallel to each other. If you're a runner, you might have thought of your pace at each mile in a marathon. If you're a bowler, you might have thought of the dreaded 7-10 split.
@@ -74,5 +76,7 @@ Write your post as you normally would, then, for any acronym, add a footnote. Yo
 Seasoned web developers didn't need to read the footnote to know what MV3 meant. Everyone else has already scrolled down, read the definition, and continued reading. Footnotes are friction-less to knowledge area experts and immensely helpful to everyone else.
 
 Do us all a favor [—]({{< relref-emdash-url >}}) please define your jargon.
+
+{{< eld-byline >}}
 
 [^1]: Google Manifest Version 3

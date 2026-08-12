@@ -41,6 +41,8 @@ UseHugoToc: false
 #    appendFilePath: true # to append file path to Edit link
 ---
 
+{{< written-by-a-human >}}
+
 ## An Ode to the Ticket Stub
 
 On March 2, 1962, Wilt Chamberlain scored 100 points in a single game [—]({{< relref-emdash-url >}}) an NBA[^1] record to this day. Why discuss basketball on a World Cup post? [Because 100,000 people say they attended that game, but the venue sat less than 5,000](https://shibevintagesports.com/blogs/news/the-night-wilt-scored-100-as-told-by-harvey-pollack). So how do you differentiate the eyewitnesses from the liars? Easy: ticket stubs.
@@ -210,6 +212,8 @@ I've done a lot of grumbling, but truly, the World Cup was an amazing experience
 This is where I must admit, despite all the effort I went to salvage my wristband [—]({{< relref-emdash-url >}}) I still bought a replica ticket. Hypocritical for all the mud I just slang at FIFA. But when 2030 rolls around, that ticket will bring back memories even if it's a fake.
 
 My money is the strongest weapon I have against ensh\*ttification, but I made FIFA's coffers heavier despite the hurdles they made me go through. Perhaps that's the balance companies must make now to maximize profit. Like slowly boiling a frog, FIFA added just enough ensh\*ttification to make me still want to attend their events. Instead of jumping out of the simmering pot, I will gladly save the date for the next tournament. Hopefully, I don't burn.
+
+{{< eld-byline >}}
 
 [Why are there footnotes?]({{< relref-jargon-url >}})
 

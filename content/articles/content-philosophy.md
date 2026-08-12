@@ -45,6 +45,8 @@ UseHugoToc: false
 # appendFilePath: true # to append file path to Edit link
 ---
 
+{{< written-by-a-human >}}
+
 ## Preface
 
 This post ended up much longer than I'd thought it be. This document is part journal, part armchair philosophy, and part soapbox. More directly, this is a snapshot of my thinking before I start a new chapter: content creation.
@@ -311,6 +313,8 @@ Again, I'll experiment with posting this content on Substack and Patreon. Who kn
 I suspect my content philosophy will change over time. Maybe I'll write a follow up to this. For now, I'll use this document to keep future me grounded.
 
 If this was too long for you to read: my content will focus on hobbyist electronic projects. What will differentiate me from other makers is ensuring my projects are well documented. My goal is to join the maker community and like-minded off shoots. A large following is an anti-goal. I'll be platform agnostic; focusing on publishing on a domain controlled by me and then syndicating that content to other appropriate channels.
+
+{{< eld-byline >}}
 
 [Why are there footnotes?]({{< relref-jargon-url >}})
 

@@ -40,3 +40,9 @@ UseHugoToc: false
 #    Text: "Suggest Changes" # edit text
 #    appendFilePath: true # to append file path to Edit link
 ---
+
+{{< written-by-a-human >}}
+
+{{< eld-byline >}}
+
+[Why are there footnotes?]({{< relref-jargon-url >}})
