@@ -41,6 +41,8 @@ UseHugoToc: false
 #    appendFilePath: true # to append file path to Edit link
 ---
 
+{{< written-by-a-human >}}
+
 ## An Ode to the Ticket Stub
 
 On March 2, 1962, Wilt Chamberlain scored 100 points in a single game [—]({{< relref-emdash-url >}}) an NBA[^1] record to this day. Why discuss basketball on a World Cup post? [Because 100,000 people say they attended that game, but the venue sat less than 5,000](https://shibevintagesports.com/blogs/news/the-night-wilt-scored-100-as-told-by-harvey-pollack). So how do you differentiate the eyewitnesses from the liars? Easy: ticket stubs.

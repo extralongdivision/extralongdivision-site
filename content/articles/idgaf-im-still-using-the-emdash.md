@@ -32,6 +32,8 @@ ShowRssButtonInSectionTermList: true
 UseHugoToc: false
 ---
 
+{{< written-by-a-human >}}
+
 AI[^2] is ruining writing.
 
 I don't mean how AI slop is polluting the internet. I don't mean [how our reliance on them is degrading our skills](https://www.scientificamerican.com/article/is-ai-ruining-our-skills-early-results-are-in-and-theyre-not-good/). I mean flesh and blood writers avoiding certain patterns to duck AI-use accusations. The most common one: the em dash.

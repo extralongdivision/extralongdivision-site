@@ -41,6 +41,8 @@ UseHugoToc: false
 #    appendFilePath: true # to append file path to Edit link
 ---
 
+{{< written-by-a-human >}}
+
 ## Split.
 
 If you're a dancer, you probably thought of someone, hips to the ground, with their legs parallel to each other. If you're a runner, you might have thought of your pace at each mile in a marathon. If you're a bowler, you might have thought of the dreaded 7-10 split.

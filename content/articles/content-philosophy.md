@@ -45,6 +45,8 @@ UseHugoToc: false
 # appendFilePath: true # to append file path to Edit link
 ---
 
+{{< written-by-a-human >}}
+
 ## Preface
 
 This post ended up much longer than I'd thought it be. This document is part journal, part armchair philosophy, and part soapbox. More directly, this is a snapshot of my thinking before I start a new chapter: content creation.
