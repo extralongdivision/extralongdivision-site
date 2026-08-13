@@ -46,11 +46,17 @@ params:
     - name: "codeberg"
       url: "https://codeberg.org/extralongdivision/"
     - name: "matrix"
-      url: "https://matrix.to/#/@extralongdivision:matrix.org"
+      url: "https://matrix.to/#/@extralongdivision:matrix.org/"
     - name: "email"
       url: "mailto:helloworld@extralongdivision.com"
-    - name: rss
+    - name: "rss"
       url: "/rss/"
+    - name: "kofi"
+      url: "https://ko-fi.com/extralongdivision/"
+    - name: "liberapay"
+      url: "https://liberapay.com/extralongdivision/"
+    - name: "buymeacoffee"
+      url: "https://buymeacoffee.com/extralongdivision/"
   
   # for search
   # https://fusejs.io/api/options.html
