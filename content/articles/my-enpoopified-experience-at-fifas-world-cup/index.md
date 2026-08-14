@@ -215,6 +215,8 @@ My money is the strongest weapon I have against ensh\*ttification, but I made FI
 
 {{< eld-byline >}}
 
+{{< donations >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: national basketball association

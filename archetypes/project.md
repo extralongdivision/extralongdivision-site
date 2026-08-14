@@ -45,4 +45,6 @@ UseHugoToc: false
 
 {{< eld-byline >}}
 
+{{< donations >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})

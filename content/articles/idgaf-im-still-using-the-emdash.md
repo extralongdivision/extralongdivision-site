@@ -46,6 +46,8 @@ But I have no one to convince. Even if it is a GPT[^4]-ism, IDGAF[^1] . I will c
 
 {{< eld-byline >}}
 
+{{< donations >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: I don't give a f*ck

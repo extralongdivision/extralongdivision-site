@@ -316,6 +316,8 @@ If this was too long for you to read: my content will focus on hobbyist electron
 
 {{< eld-byline >}}
 
+{{< donations >}}
+
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
 [^1]: printed circuit board assembly

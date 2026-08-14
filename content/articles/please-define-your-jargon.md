@@ -79,4 +79,6 @@ Do us all a favor [—]({{< relref-emdash-url >}}) please define your jargon.
 
 {{< eld-byline >}}
 
+{{< donations >}}
+
 [^1]: Google Manifest Version 3
