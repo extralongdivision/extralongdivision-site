@@ -4,7 +4,9 @@ draft: false
 title: 'RSS'
 ---
 
-Below is a curated list of RSS[^1] feeds. In general, appending `index.xml` to the end of most URLs[^2] will return the corresponding feed.
+{{< written-by-a-human >}}
+
+Below is a curated list of RSS[^1] feeds.
 
 - [Articles]({{< ref-articles-rss-feed >}})
 

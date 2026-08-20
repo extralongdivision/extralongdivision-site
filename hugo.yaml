@@ -36,11 +36,14 @@ params:
 
   profileMode:
     enabled: true
-    subtitle: "I make things. Sometimes they work. Find out if they do (plus other random things) by following me at the links below."
+    subtitle: "I make things. Sometimes they work."
     imageUrl: "prof-pic.webp" # optional
     imageTitle: "I have a computer!" # optional
     imageWidth: 128 # custom size
     imageHeight: 128 # custom size
+    buttons:
+    - name: Subscribe via RSS
+      url: "https://cloud.umami.is/q/OqNJhRxBC"
 
   socialIcons: # optional
     - name: "codeberg"
