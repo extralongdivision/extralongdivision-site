@@ -53,7 +53,7 @@ Language is like that. Its imprecision can leave things ambiguous. Artists can u
 
 ## Technical Writing Cannot be Ambiuous
 
-This is rarely intentional, but ambiguity manifests when we assume jargon we use everyday is obvious. Engineers are notorious for this. I.e, [this post about making a chrome extension](https://dev.to/projekta2/i-built-a-chrome-extension-used-daily-for-pr-review-5-decisions-id-make-differently-4o64) uses the term "MV3"[^1] four times but never defines it.
+This is rarely intentional, but ambiguity manifests when we assume jargon we use everyday is obvious. Engineers are notorious for this. I.e, {{< tracked-anchor href="https://dev.to/projekta2/i-built-a-chrome-extension-used-daily-for-pr-review-5-decisions-id-make-differently-4o64" text="this post about making a chrome extension" >}} uses the term "MV3"[^1] four times but never defines it.
 
 *The meaning of MV3 is obvious in a post about chrome extensions.*
 
@@ -61,7 +61,7 @@ This is rarely intentional, but ambiguity manifests when we assume jargon we use
 
 *Just Google it*.
 
-Let me remind you that search engines personalize your results. Searching "MV3" on a seasoned developer's machine may return docs on migrating a service worker. Someone else may get the [2004 St. Louis Cardinals.](https://www.msn.com/en-us/sports/baseball/father-mcgivney-baseball-s-mv3-carved-the-path/ar-AA1JWQH4)
+Let me remind you that search engines personalize your results. Searching "MV3" on a seasoned developer's machine may return docs on migrating a service worker. Someone else may get the {{< tracked-anchor href="https://www.msn.com/en-us/sports/baseball/father-mcgivney-baseball-s-mv3-carved-the-path/ar-AA1JWQH4" text="2004 St. Louis Cardinals." >}}
 
 *Context makes MV3's meaning clear.*
 

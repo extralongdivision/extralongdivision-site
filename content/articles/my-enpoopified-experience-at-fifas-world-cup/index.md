@@ -45,11 +45,11 @@ UseHugoToc: false
 
 ## An Ode to the Ticket Stub
 
-On March 2, 1962, Wilt Chamberlain scored 100 points in a single game [—]({{< relref-emdash-url >}}) an NBA[^1] record to this day. Why discuss basketball on a World Cup post? [Because 100,000 people say they attended that game, but the venue sat less than 5,000](https://shibevintagesports.com/blogs/news/the-night-wilt-scored-100-as-told-by-harvey-pollack). So how do you differentiate the eyewitnesses from the liars? Easy: ticket stubs.
+On March 2, 1962, Wilt Chamberlain scored 100 points in a single game [—]({{< relref-emdash-url >}}) an NBA[^1] record to this day. Why discuss basketball on a World Cup post? {{< tracked-anchor text="Because 100,000 people say they attended that game, but the venue sat less than 5,000" href="https://shibevintagesports.com/blogs/news/the-night-wilt-scored-100-as-told-by-harvey-pollack" >}}. So how do you differentiate the eyewitnesses from the liars? Easy: ticket stubs.
 
 They prove a fan's story and also serve as a life-long keepsake. But the ticket stub is dying a digital death. Do not confuse this post as an old man shaking his first at technology. Digital tickets are convenient. Can't be lost. Often, they update instantly if scheduling or seating changes.
 
-Ticket stubs still have value in 2026, though. Most events shift the burden, and cost, of printing a ticket to the customer. Some organizations are so adamant about removing  physical ticket overhead, that they lie about their ability to print them. Exhibit A: [Errol Segal, a season ticket holder of 50 years, missed the opening day game because the Los Angeles Dodgers refused to print him physical tickets](https://www.cbsnews.com/losangeles/news/50-year-dodgers-season-ticket-holder-misses-opening-day-after-team-refuses-to-print-tickets-for-2026-season/). The Dodgers did the sensible thing only after Errol's story went viral.
+Ticket stubs still have value in 2026, though. Most events shift the burden, and cost, of printing a ticket to the customer. Some organizations are so adamant about removing  physical ticket overhead, that they lie about their ability to print them. Exhibit A: {{< tracked-anchor text="Errol Segal, a season ticket holder of 50 years, missed the opening day game because the Los Angeles Dodgers refused to print him physical tickets" href="https://www.cbsnews.com/losangeles/news/50-year-dodgers-season-ticket-holder-misses-opening-day-after-team-refuses-to-print-tickets-for-2026-season/" >}}. The Dodgers did the sensible thing only after Errol's story went viral.
 
 But even this I would not call ensh*ttification. Simply bad customer service.
 
@@ -57,11 +57,11 @@ I had the misfortune to experience FIFA's ensh*ttification firsthand. Of which, 
 
 ## The Week Of
 
-I received email reminders to download my ticket the week leading up to the match. [The tickets were only available through FIFA's official app](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/ticket-delivery-information).
+I received email reminders to download my ticket the week leading up to the match. {{< tracked-anchor text="The tickets were only available through FIFA's official app" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/ticket-delivery-information" >}}.
 
 {{< figure src="ticket-policy.webp" alt="ticket policy" >}}
 
-As a privacy conscious netizen, I checked how invasive the app was. It had 6 trackers and requested 28 permissions when I first looked. As of writing this, [it has 3 trackers and 16 permissions](https://reports.exodus-privacy.eu.org/en/reports/755617/).
+As a privacy conscious netizen, I checked how invasive the app was. It had 6 trackers and requested 28 permissions when I first looked. As of writing this, {{< tracked-anchor text="it has 3 trackers and 16 permissions" href="https://reports.exodus-privacy.eu.org/en/reports/755617/" >}}.
 
 {{< figure src="ticket-app-trackers.webp" alt="ticket app trackers" >}}
 
@@ -69,7 +69,7 @@ Spyware disguised as an app does not surprise me anymore. Perhaps I should be mo
 
 {{< figure src="fifa-contact-instructions.webp" alt="FIFA contact instructions" >}}
 
-The link to the contact form is https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb/requests/new. I couldn't find a way to navigate to it through FIFA's main website. Someone not on FIFA's email list would have to Google for it.
+The link to the contact form is {{< tracked-anchor href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb/requests/new" text="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb/requests/new" >}}. I couldn't find a way to navigate to it through FIFA's main website. Someone not on FIFA's email list would have to Google for it.
 
 I filled out the contact form and got an automated email that regurgitated the same information about using the ticketing app. Nowhere in the email did it state or imply that a human read my inquiry nor would a living person actually get back to me. It provided no follow up method either. I submitted multiple inquires through the form but couldn't get a response from a human being that wasn't information I'd already received from FIFA.
 
@@ -103,7 +103,7 @@ For comparison, trying to login through the FIFA website sends me to this URL: `
 
 The URL parameters hint at the information the ticketing app needs that the normal FIFA site does not. Namely, the `code_challenge`, `code_challenge_type`, `and campaign` parameters and the `tixngo` value in the `state` parameter.
 
-TIXNGO is apparently [an app](https://auth.fifa.com/as/authorize?response_type=code&response_mode=form_post&client_id=35072598-fc20-4142-a469-1b940db47e6f&scope=openid+profile+marketing+email+address+phone+p1%3Aupdate%3Auser%3Asafe-only+p1%3Areset%3AuserPassword&lang=en&redirect_uri=https%3A%2F%2Fwww.fifa.com%2Fauth&state=%2Fen&campaign=Fifacom-Web) and [a service provided by SECUTIX](https://p5backoffice.tixngo.io/login). Their app has no reviews as of writing this. I wouldn't be surprised if the official FIFA app is SECUTIX's with a different skin. That's probably SECUTIX's entire business model.
+TIXNGO is apparently {{< tracked-anchor href="https://play.google.com/store/apps/details?id=io.tixngo.app&hl=en-US" text="an app">}} and {{< tracked-anchor href="https://p5backoffice.tixngo.io/login" text="a service provided by SECUTIX" >}}. Their app has no reviews as of writing this. I wouldn't be surprised if the official FIFA app is SECUTIX's with a different skin. That's probably SECUTIX's entire business model.
 
 I tried to mix and match key-value pairs in the URL to access my ticket through the web portal. Specifically, modifying the `redirect_uri` and the `campaign` parameters while removing everything to do with TIXNGO.
 

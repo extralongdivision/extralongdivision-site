@@ -1,0 +1,7 @@
+<!--Needs 2 arguments href=<external link url>, text=<plain text visible to end user>-->
+<a href="{{ .Get "href" }}"
+data-umami-event="outbound-link-click"
+data-umami-event-url="{{ .Get "href" }}"
+>
+    {{ .Get "text" }}
+</a>

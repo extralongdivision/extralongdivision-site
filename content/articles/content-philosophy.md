@@ -1,5 +1,6 @@
 ---
 date: '2026-07-21T00:00:00-00:00'
+lastmod: '2026-08-21T01:00:01-00:00'
 draft: false
 title: 'Content Philosophy'
 #
@@ -81,7 +82,11 @@ Not the best corollary, but it adds a missing aspect to this quote. Countless ti
 
 The bad documentation problem is compounded by a recent trend: the dominant medium for knowledge is shifting from text to audio/video. For millennia, the most efficient way to preserve information was writing it down. But thanks to the attention economy, audio/video mediums are so dominant that, for example, it's standard marketing to make trailers for novels [—]({{< relref-emdash-url >}}) a written art form
 
-Video has a place (more on that later), but video monetization has led to absurd content. I.e [this 11 hour YouTube course on running an Amazon fulfillment business](https://www.youtube.com/watch?v=LegZUuOVZ9Y&pp=ygUVZnJlZSBlY29tbWVyY2UgY291cnNl). It's not a series of videos, it's an 11 hour block. The ability to jump to sections is irrelevant to my gripe. A blog post could be searched for by keyword, updated as certain sections go out-of-date, added to as new information is discovered, etc. But since this is a video, the whole thing has to be remade regularly. Which is the point. This particular creator makes a new video every year because it's part of their content cycle. Education is a secondary goal. The primary goal is to consistently publish new content.
+Video has a place (more on that later), but video monetization has led to absurd content. I.e this 11 hour YouTube course on running an Amazon fulfillment business.
+
+{{< youtube LegZUuOVZ9Y >}}
+
+It's not a series of videos, it's an 11 hour block. The ability to jump to sections is irrelevant to my gripe. A blog post could be searched for by keyword, updated as certain sections go out-of-date, added to as new information is discovered, etc. But since this is a video, the whole thing has to be remade regularly. Which is the point. This particular creator makes a new video every year because it's part of their content cycle. Education is a secondary goal. The primary goal is to consistently publish new content.
 
 But documentation's primary goal is to inform. Docs are a reference. Imagine if you had to read your car's manual from start to finish in order to change your tire. Instead, you go to the relevant section and read the portion you're interested in whenever you have an inquiry. Skipping through a video or podcast is not the solution!
 
@@ -103,7 +108,7 @@ The United Nations wrote this document as a guiding principle for nation states,
 
 Now, a common-business model is stashing articles, design files, behind-the-scenes content, etc. behind a pay wall. Do not mistake this remark as an argument against makers earning money. I believe the opposite. You deserve compensation for your work. But if every maker puts the details of their project behind a paywall, we reduce our ability to learn from each other.
 
-A shining counterexample is [Kevin Macleod](http://incompetech.com/). You've probably heard his music without knowing it. Kevin has thousands of royalty-free music available on his website. All he asks for is credit. Because of that, not in-spite of, he has credits in award-winning films and TV shows.
+A shining counterexample is {{< tracked-anchor href="http://incompetech.com/" text="Kevin Macleod" >}}. You've probably heard his music without knowing it. Kevin has thousands of royalty-free music available on his website. All he asks for is credit. Because of that, not in-spite of, he has credits in award-winning films and TV shows.
 
 I'll likely never reach the acclaim of Kevin Macleod. I'll follow the path he pioneered, though: generously licensing the work I publish while kindly asking for donations. This will almost certainly be less lucrative in the short-term, potentially long-term as well. But to quote Sir Issac Newton:
 
@@ -135,7 +140,7 @@ Notice how gaining a large following is not my goal. In fact, I think a large fo
 
 The standard business model for tech services in general, not just social media, is capture the attention of as many people as possible, often by used-car-salesmen-y means, then sell their attention to advertisers. This actually gives the user, not tech companies, more power.
 
-An user can pick and choose who to give their attention to on a whim. In the copycat world of tech, there are plenty of options to choose from. This is why platforms [ensh*ttify](https://www.merriam-webster.com/slang/enshittification). They hold their users' attention hostage to ensure their real customers, advertisers, get their money's worth. Eventually, the platform hits a critical mass of ensh*ttification and users migrate somewhere else. It happened to LiveJournal, Digg, Facebook, Vine. The list is endless.
+An user can pick and choose who to give their attention to on a whim. In the copycat world of tech, there are plenty of options to choose from. This is why platforms {{< tracked-anchor href="https://www.merriam-webster.com/slang/enshittification" text="ensh*ttify" >}}. They hold their users' attention hostage to ensure their real customers, advertisers, get their money's worth. Eventually, the platform hits a critical mass of ensh*ttification and users migrate somewhere else. It happened to LiveJournal, Digg, Facebook, Vine. The list is endless.
 
 The same happens to content creators. No matter how they spin it, their following is a customer base. Content creators falling off is akin to users migrating from social media platforms. Your following can revolt in multiple ways. Perhaps you don't post as much as they want. Perhaps you're posting different content than what they originally followed you for. Perhaps you're not reciprocating the para-social relationship they've formed with you. Either way, if your following leaves, your career is over.
 
@@ -177,7 +182,7 @@ If I build a community, the onus is on me to shepherd those people. I'd rather m
 
 While previous sections might sound dismissive of content creators growing their own following, the communities that I, and likely you, know and love are probably the product of a small group of passionate people nurturing a fandom. This is very hard. Way harder than joining an existing community.
 
-I mentioned Robert Rich earlier and quoted his response to Kevin Kelly's concept of 1000 True Fans. [I highly encourage you to read it in full.](https://kk.org/thetechnium/the-reality-of/)
+I mentioned Robert Rich earlier and quoted his response to Kevin Kelly's concept of 1000 True Fans. {{< tracked-anchor href="https://kk.org/thetechnium/the-reality-of/" text="I highly encourage you to read it in full." >}}
 
 There is much to ponder in Robert's commentary, but especially relevant to makers is the isolation.
 
@@ -237,13 +242,13 @@ Instead, I'll plaster donation links to PayPal, Buy Me A Coffee, Ko-fi, and Libe
 
 ### Ownership
 
-The people at the [Indie Web Movement](https://indieweb.org/why) better summarize my opinion about owning your work. That said, the best place to advertise my projects is social media. Posting, though, will likely give the platform a commercial license to do whatever they want with my content. Worse, no one has solved content moderation at scale. So my accounts could be banned with no warning or explanation.
+The people at the {{< tracked-anchor href="https://indieweb.org/why" text="Indie Web Movement" >}} better summarize my opinion about owning your work. That said, the best place to advertise my projects is social media. Posting, though, will likely give the platform a commercial license to do whatever they want with my content. Worse, no one has solved content moderation at scale. So my accounts could be banned with no warning or explanation.
 
-For that reason, I will be platform agnostic. I'll prioritize posting my content in the [fediverse](https://jointhefediverse.net/learn), but will also cross-post on closed-platforms.
+For that reason, I will be platform agnostic. I'll prioritize posting my content in the {{< tracked-anchor href="https://jointhefediverse.net/learn" text="fediverse" >}}, but will also cross-post on closed-platforms.
 
 ## Content Channels
 
-Once again, other people have better defined my strategy: [POSSE](https://indieweb.org/POSSE) or *P*ublish *O*n your own *S*ite, *S*yndicate *E*lsewhere. Sometimes that's not possible or hard to do, especially on photo/video platforms. Instead I'll [PESOS](https://indieweb.org/PESOS), or *P*ublish *E*lsewhere, and *S*yndicate on my *O*wn *S*ite.
+Once again, other people have better defined my strategy: {{< tracked-anchor href="https://indieweb.org/POSSE" text="POSSE" >}} or *P*ublish *O*n your own *S*ite, *S*yndicate *E*lsewhere. Sometimes that's not possible or hard to do, especially on photo/video platforms. Instead I'll {{< tracked-anchor href="https://indieweb.org/PESOS" text="PESOS" >}}, or *P*ublish *E*lsewhere, and *S*yndicate on my *O*wn *S*ite.
 
 This has many benefits. One of them is actually reaching people interested in your content. Ironically, having millions of followers doesn't mean they'll see anything you post. Robert Rich once again prophetically predicted this back in 2008.
 
