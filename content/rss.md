@@ -4,8 +4,6 @@ draft: false
 title: 'RSS'
 ---
 
-{{< written-by-a-human >}}
-
 Below is a curated list of RSS[^1] feeds.
 
 - [Articles]({{< ref-articles-rss-feed >}})
