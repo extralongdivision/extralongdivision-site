@@ -1,1 +1,3 @@
-{{ partial "written-by-a-human.html" . }}
+{{ with resources.Get "Written-By-a-Human-Not-By-AI-Badge-black.svg" }}
+    <img src="{{ .Permalink }}" alt="written by a human not by AI">
+{{ end }}
