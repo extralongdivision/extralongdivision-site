@@ -1,0 +1,4 @@
+<!--page context passed as "page" and image path from images_dir passed as "relpath"-->
+{{ $relpath := (printf "%s%s/" .page.Site.Params.images_dir .relpath)  }}
+{{ $img_resource := resources.Get $relpath}}
+{{ return $img_resource.Permalink }}

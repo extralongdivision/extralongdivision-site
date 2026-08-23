@@ -37,7 +37,7 @@ params:
   profileMode:
     enabled: true
     subtitle: "I make things. Sometimes they work."
-    imageUrl: "prof-pic.webp" # optional
+    imageUrl: "apple-touch-icon.png" # optional
     imageTitle: "I have a computer!" # optional
     imageWidth: 128 # custom size
     imageHeight: 128 # custom size
@@ -78,6 +78,7 @@ params:
   projects_path: "projects/"
   emdash_slug: "idgaf-im-still-using-the-emdash"
   jargon_slug: "please-define-your-jargon"
+  images_dir: "images/"  # in deployed directory, not in repo
 
 menu:
   main:

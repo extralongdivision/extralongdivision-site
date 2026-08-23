@@ -1,6 +1,10 @@
 <div style="display:flex; align-items: center; justify-content: center; gap: 1px; border: 1px solid; border-radius: 10px;">
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <img src="{{ urls.AbsURL "homeless-emoji.webp" }}" alt="homeless-emoji" width="48px" height="48px">
+  {{ $ctx := dict
+  "page" .
+  "relpath" "homeless-emoji.webp"
+  }}
+  <img src="{{ (partial "img-relpath2permalink.html" $ctx ) }}" alt="homeless-emoji" width="48px" height="48px">
   <div style="display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: center;">
     <!--FIXME WET "themes/PaperMod/layouts/_partials/svg.html"-->
     <a href="https://ko-fi.com/extralongdivision/"
