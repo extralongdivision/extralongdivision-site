@@ -1,0 +1,15 @@
+div.author-byline {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+img.author-byline {
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+}
