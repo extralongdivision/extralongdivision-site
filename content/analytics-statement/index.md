@@ -1,5 +1,6 @@
 ---
 date: '2026-08-18T22:56:32-07:00'
+lastmod: '2026-08-27T22:08:32-07:00'
 draft: false
 title: 'Analytics Statement'
 
@@ -49,7 +50,7 @@ Finally, l also track when users leave via external links. The link to Umami in 
 
 ## How to Circumvent Tracking
 
-Not something most sites will show you how to do. I'll be honest: it's pretty easy. Most add blockers disable, from what I can tell, all the tracking mentioned above. Even the 1-by-1 pixel and outbound event tracking. Using a lightly hardened browser like Brave made users invisible from my testing.
+Not something most sites will encourage you to do. It's easy on this site though: {{< tracked-anchor href="https://www.howtogeek.com/how-to-enable-do-not-track-in-any-web-browser/" text="enable Do-Not-Track" >}}. I've configured Umami to respect it. From my testing, you can leave Javascript and images enabled to traverse with an invisibility cloak (or at least invisible to me).
 
 [Why are there footnotes?]({{< relref-jargon-url >}})
 
