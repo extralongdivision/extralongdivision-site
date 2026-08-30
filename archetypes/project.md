@@ -9,7 +9,7 @@ author: 'Extra Long Division'
 tags: ['project']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
-canonicalURL: '{{ absURL .Site.Params.projects_path }}{{ .File.ContentBaseName }}/'
+# canonicalURL: '{{ absURL .Site.Params.projects_path }}TODO/{{ .File.ContentBaseName }}/'
 # author: ["Me", "You"] # multiple authors
 
 #
