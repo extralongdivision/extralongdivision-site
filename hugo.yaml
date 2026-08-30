@@ -18,7 +18,7 @@ params:
 
   mainSections:
     - articles
-    # - projects TODO
+    - projects
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -42,6 +42,8 @@ params:
     imageWidth: 128 # custom size
     imageHeight: 128 # custom size
     buttons:
+    - name: Dragon Ball Radar
+      url: projects/dbz-radar/dbz-radar-devlog-1/ # FIXME WET projects path
     - name: Subscribe via RSS
       url: "https://cloud.umami.is/q/OqNJhRxBC"
 
@@ -82,10 +84,10 @@ params:
 
 menu:
   main:
-    #- identifier: projects
-    #  name: Projects
-    #  url: /projects/
-    #  weight: 1
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 1
     - identifier: articles
       name: Articles
       url: articles/
@@ -94,15 +96,11 @@ menu:
       name: Archive
       url: archive/
       weight: 3
-    - identifier: tags
-      name: Tags
-      url: tags/
-      weight: 4
     - identifier: RSS
       name: RSS
       url: rss/
-      weight: 5
+      weight: 4
     - identifier: search
       name: Search
       url: search/
-      weight: 6
+      weight: 5
