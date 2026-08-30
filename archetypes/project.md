@@ -1,5 +1,5 @@
 ---
-date: '{{ .Date }}'
+date: '{{ (time.AsTime (.Date)).UTC }}'
 draft: true
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 #
@@ -23,7 +23,7 @@ disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
 searchHidden: false
-ShowReadingTime: false
+ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowWordCount: false
