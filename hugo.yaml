@@ -45,7 +45,7 @@ params:
     - name: Dragon Ball Radar
       url: projects/dbz-radar/dbz-radar-devlog-1/ # FIXME WET projects path
     - name: Subscribe via RSS
-      url: "https://cloud.umami.is/q/OqNJhRxBC"
+      url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET RSS feed
 
   socialIcons: # optional
     - name: "codeberg"
@@ -55,7 +55,7 @@ params:
     - name: "email"
       url: "mailto:helloworld@extralongdivision.com"
     - name: "rss"
-      url: "/rss/"
+      url: "rss/"
     - name: "kofi"
       url: "https://ko-fi.com/extralongdivision/"
     - name: "liberapay"
@@ -81,12 +81,13 @@ params:
   emdash_slug: "idgaf-im-still-using-the-emdash"
   jargon_slug: "please-define-your-jargon"
   images_dir: "images/"  # in deployed directory, not in repo
+  projects_rss_url: "https://cloud.umami.is/q/4vO3PdsPN"
 
 menu:
   main:
     - identifier: projects
       name: Projects
-      url: /projects/
+      url: projects/
       weight: 1
     - identifier: articles
       name: Articles
