@@ -9,7 +9,7 @@ author: 'Extra Long Division'
 tags: ['project', 'dragon-ball-radar', 'esp32', 'circuitpython']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
-# canonicalURL: 'https://extralongdivision.com/projects/dbz-radar-devlog-1/'
+canonicalURL: 'https://extralongdivision.com/projects/dbz-radar/dbz-radar-devlog-1/'
 # author: ["Me", "You"] # multiple authors
 
 #
@@ -27,14 +27,14 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowWordCount: false
-ShowRssButtonInSectionTermList: true
+ShowRssButtonInSectionTermList: false
 UseHugoToc: false
-# cover:
-#    image: "<image path/url>" # image path/url
-#    alt: "<alt text>" # alt text
-#    caption: "<text>" # display caption under cover
-#    relative: false # when using page bundles set this to true
-#    hidden: true # only hide on current single page
+cover:
+   image: cover.webp # "<image path/url>" # image path/url
+   alt: "Dragon Radar" # alt text
+   # caption: "Dragon Ball Radar" # display caption under cover
+   relative: true # when using page bundles set this to true
+   hidden: false # only hide on current single page
 # editPost:
 #    URL: "https://github.com/<path_to_repo>/content"
 #    Text: "Suggest Changes" # edit text
@@ -45,9 +45,9 @@ UseHugoToc: false
 
 ## Inspiration
 
-If you want a real life [Dragon Radar](!https://dragonball.fandom.com/wiki/Dragon_Radar#Other_Z_Fighter_Radars)(track this), there are small amount of toys to choose from.
+If you want a real life {{< tracked-anchor href="https://dragonball.fandom.com/wiki/Dragon_Radar" text="Dragon Radar" >}}, there are a small amount of toys to choose from.
 
-[photo]
+{{< figure src="dbz-radar-toys.webp" alt="dragon radar shopping list" loading="lazy" >}}
 
 None of those can really function as the radar from the anime. The maker in me wanted to change that.
 
@@ -57,9 +57,9 @@ There were some bumps along the way, but the first revision turned out alright. 
 
 ### CircutPython
 
-A Dragon Radar requires a circular screen. In recent years, these have become more available to the hobbyist maker. There are lots on Alibaba and Aliexpress, but Adafruit has [4"](https://www.adafruit.com/product/5793) and [2.8"](https://www.adafruit.com/product/5793) varieties that are not only well documented but have a complementary dev board: the [ESP32-S3 Qualia.](https://www.adafruit.com/product/5800)
+A Dragon Radar requires a circular screen. In recent years, these have become more available to the hobbyist maker. There are lots on Alibaba and Aliexpress, but Adafruit has {{< tracked-anchor href="https://www.adafruit.com/product/5793" text="4\"">}} and {{< tracked-anchor href="https://www.adafruit.com/product/5793" text="2.8\"">}} varieties that are not only well documented but have a complementary dev board: the {{< tracked-anchor href="https://www.adafruit.com/product/5800" text="ESP32-S3 Qualia." >}}
 
-This is where I began prototyping and quickly hit an impasse. Adafruit prioritizes CircuitPython and I couldn't get the CIRCUITPY drive to show up on my Linux machine. I bumbled around factory reset and bootloader repair documentation only for flashing to work first try after connecting the Qualia to a Windows machine. Not sure why.
+This is where I began prototyping and quickly hit an impasse. Adafruit prioritizes CircuitPython and I couldn't get the `CIRCUITPY` drive to show up on my Linux machine. I bumbled around factory reset and bootloader repair documentation only for flashing to work first try after connecting the Qualia to a Windows machine. Not sure why.
 
 Once I flashed the newest CircuitPython onto the Qualia, it showed up on my Linux machine. Maybe it's on old bug that's hence been repaired.
 
@@ -146,7 +146,7 @@ I should note that I ran into an error when trying to program the board.
 OSError: [Errno 5] Input/output error
 ```
 
-This prevented me from updating the code. [Other people have had this problem too apparently](https://github.com/adafruit/circuitpython/issues/8449) I still don't know the root cause, but the work around I used on  Linux was:
+This prevented me from updating the code. {{< tracked-anchor href="https://github.com/adafruit/circuitpython/issues/8449" text="Other people have had this problem too apparently." >}} I still don't know the root cause, but the work around I used on Linux was:
 
 ```
 sudo cp code.py /media/<username>/CIRCUITPY/code.py
@@ -154,17 +154,15 @@ sudo cp code.py /media/<username>/CIRCUITPY/code.py
 
 ### Sound
 
-This was the first hiccup. Those familiar with the Dragon Ball series will know the radar makes this sound:
+This was the first hiccup. This demo of the Adafruit team playing Star Trek on the Qualia made me confident that the board could be the base for a Dragon Radar.
 
-[sound]
+{{< youtube yKRatudQSsI >}}
 
-This demo of the Adafruit team playing Star Trek on the Qualia made me confident that the board could be the base for a Dragon Radar.
+Those familiar with the Dragon Ball series will know the radar makes this sound:
 
-[https://www.youtube.com/watch?v=yKRatudQSsI] (embeded)
+{{< audio src="radar-beep.ogg" >}}
 
-My implementation didn't sound as good.
-
-I bought a breakout board for the same I2S[^2] chip used in the above demo, the MAX98357, and connected it to the Qualia board.
+My implementation didn't sound as good. I bought a breakout board for the same I2S[^2] chip used in the above demo, the MAX98357, and connected it to the Qualia board.
 
 [photo of breadboard setup]
 
@@ -244,11 +242,11 @@ This close enough to the anime. Finishing the mechanical design for the user inp
 
 The button to turn the device on and off is actually an assembly of a shaft and cap. There's heat-set inserts in each part and they're assembled together with a set screw.
 
-[photo]
+[screenshot]
 
 This is where the beveled edges on the enclosure became a problem. Having the button on the top of the radar would make it much thicker. I could make the button shaft visible from the front when looking at the display, but it doesn't look as true to the anime.
 
-[photo]
+[screenshot]
 
 I'll probably print both options and decide which one I like more once they're in my hand
 
@@ -268,7 +266,7 @@ Also, at this point I knew there was a lot of empty space on the board, so I did
 
 Snap-fits are the premiere way to assemble parts together, but I'm too lazy to iterate through a bunch of tolerances before everything assembles well. Instead, I used heat-set inserts to mount the PCB and assemble the enclosure together. To preserve [poka-yoke](https://en.wikipedia.org/wiki/Poka-yoke)(track this), I used different threads for the PCB mounting and enclosure
 
-[photo]
+[PCB screenshot]
 
 M1 screws were surprisingly expensive to source from the usually suspects. I ultimately found some on Amazon.
 
@@ -276,7 +274,7 @@ M1 screws were surprisingly expensive to source from the usually suspects. I ult
 
 The speakers I'm using thankfully ship with adhesive foam. I cut a small nest about ~0.25 mm bigger than the speaker in the enclosure's back as a mounting location. Hopefully the adhesive is enough to keep it into place. Add some holes so the sound escapes and mechanical design is done!
 
-[photo]
+[end product render]
 
 ## Electronics Design
 
@@ -307,7 +305,7 @@ This choice forced me to rotate the ESP32 package 45 degrees to avoid a THT insi
 
 I'm actually still violating the layout rules provided by Espressif. They recommend the antenna hang off the board ideally or, if not possible, the end of the antenna be at least 15 mm away from the board edge and that the feed point be max 2 mm from a board edge.
 
-[picture]
+[screenshot]
 
 If I hung the antenna off the board it'd collide with the enclosure and I didn't want to make the enclosure any larger.
 
@@ -446,7 +444,7 @@ I didn't bother testing how accurate the monitor was as the battery discharged s
 
 I plugged in a known good 4" display into my PCBA and programmed the board with  example code and... nothing.
 
-[photo]
+[photo]?
 
 The display's back-light turned on which tells me that the pin-out for the connector was correct and that I2C[^14] works (only partially true, keep reading) since the I2C expander controls the LED driver. I began to search TTL[^15] RGB routing guidelines to see if I violated any rules, but I didn't find anything specific. What ultimately led me to the error was comparing the waveforms on my board vs the Qualia. All the RGB565 signals looked fine, but the I2C expander, the PCA9554, sent no SPI[^16] signals to the display. The ESP32 produced the expected I2C signals, but the PCA9554 didn't respond. I realized the problem after doing a port scan.
 
@@ -476,7 +474,9 @@ While I'm 99% sure this was the only problem, before I discovered the pin mismat
 
 - I have to make the board thinner.
 
-That's it. Not bad for a first revision. The repository for this project, though completely undocumented as of writing this, is available at [https://codeberg.org/extralongdivision/dbz-radar](track this). I'll post another write up here when it's ready. [Subscribe to my RSS feed](projects link) to get the update as soon as it drops.
+That's it. Not bad for a first revision. At this point, I could try to assemble the display and PCB into the enclosure, but it'd be inconvienent to have to dissemble the entire project just to charge the battery. I'll sort out mechanical assembly once the new pCB comes in.
+
+The repository for this project, though completely undocumented as of writing this, is available at [https://codeberg.org/extralongdivision/dbz-radar](track this). I'll post another write up here when it's ready. [Subscribe to my RSS feed](projects link) to get the update as soon as it drops.
 
 {{< eld-byline >}}
 
