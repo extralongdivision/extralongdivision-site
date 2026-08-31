@@ -45,7 +45,7 @@ UseHugoToc: false
 
 ## Inspiration
 
-If you want a real life [Dragon Radar](!https://dragonball.fandom.com/wiki/Dragon_Radar#Other_Z_Fighter_Radars), there are small amount of toys to choose from.
+If you want a real life [Dragon Radar](!https://dragonball.fandom.com/wiki/Dragon_Radar#Other_Z_Fighter_Radars)(track this), there are small amount of toys to choose from.
 
 [photo]
 
@@ -231,6 +231,10 @@ It was in chinglish and honestly frustrating to interpret, but the visible pixel
 [screenshot]
 
 To hide this in the end product, I'd have to put a bevel around the enclosure's edges. Add a THT[^4] tactile switch (not SMT [^12] for mechanical strength reasons) for the activation button and the offset between the active pixel area and PCB center increases to [Y] mm.
+
+[screenshot]
+
+Adding a bevel to the edges of the display allowed the screen to be the center of the enclosue.
 
 [screenshot]
 
