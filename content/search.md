@@ -5,4 +5,3 @@ title: 'Search'
 placeholder: search title or post...
 layout: 'search'
 ---
----
