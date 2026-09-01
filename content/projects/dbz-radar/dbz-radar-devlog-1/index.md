@@ -164,11 +164,11 @@ Those familiar with the Dragon Ball series will know the radar makes this sound:
 
 My implementation didn't sound as good. I bought a breakout board for the same I2S[^2] chip used in the above demo, the MAX98357, and connected it to the Qualia board.
 
-[photo of breadboard setup]
+{{< figure src="sound-prototype.webp" alt="qualia and MAX98357 breakout prototype" loading="lazy" >}}
 
-The first audio file in this section sounded like this played through my prototype hardware:
+The first audio file in this section sounded like this played through my prototype hardware (put the volume down):
 
-[sound]
+{{< audio src="cursed-beep.ogg" >}}
 
 The crackling sound is not your speakers. That's actually what was coming out of my breadboard set up. I used, what I believe to be, the same speakers as the one Adafruit demoed as well as a 8 ohm variant, but that didn't change anything. Changing the gain or the stereo/L/R output of the amp didn't fix the issue either.
 
@@ -211,7 +211,7 @@ I don't have a lot of familiarity with I2S or sound circuits in general. Since *
 
 Given the unique shape of the Dragon Radar, I started with designing a 3D model. In the anime, the Dragon Radar took on slightly different looks.
 
-[anime dragon ball radar]
+{{< figure src="dragon-radars.webp" alt="dragon radars" loading="lazy" >}}
 
 There are two constraints mandatory to match the anime:
 
@@ -222,41 +222,39 @@ These two constraints seem simple, but forced my hand during mechanical design.
 
 I decided to use the 4" display, HD40015C40, since I figured a display that was too big was better than one that was too small. I didn't have the display in hand yet when designing the enclosure so I had to go off its datasheet.
 
-[photo of display datasheet]
+{{< figure src="HD40015C40-drawing.webp" alt="display mechanical drawing" loading="lazy" >}}
 
-It was in chinglish and honestly frustrating to interpret, but the visible pixels on the screen are not centered in the display assembly. In fact, the center of the bounding box of the display assembly and the center of the active pixel area is offset by [x] mm.
+It was in chinglish and honestly frustrating to interpret, but the visible pixels on the screen are not centered in the display assembly. In fact, the center of the bounding box of the display assembly and the center of the active pixel area is offset by 2.44 mm.
 
-[screenshot]
+{{< figure src="aa-offset.webp" alt="render of screen and display assembly" loading="lazy" >}}
 
-To hide this in the end product, I'd have to put a bevel around the enclosure's edges. Add a THT[^4] tactile switch (not SMT [^12] for mechanical strength reasons) for the activation button and the offset between the active pixel area and PCB center increases to [Y] mm.
+I was able to reduce the offset to 1.5 mm in the opposite direction with the activiation button's placement. I used a THT[^4] switch for mechanical strength, but this forced the PCB to be bigger than the display so the switch's leads didn't interfere with the display.
 
-[screenshot]
+{{< figure src="aa-pcb-offset.webp" alt="render of display on PCBA" loading="lazy" >}}
 
-Adding a bevel to the edges of the display allowed the screen to be the center of the enclosue.
+To keep the screen centered in the end product, I had to put a sizable bevel around the enclosure's edges.
 
-[screenshot]
+{{< figure src="bevel-length.webp" alt="render of enclosure over display assembly" loading="lazy" >}}
 
-This close enough to the anime. Finishing the mechanical design for the user input changed things though.
+This is close enough to the anime. Finishing the mechanical design for the user input changed things though.
 
 ### Activation Button
 
 The button to turn the device on and off is actually an assembly of a shaft and cap. There's heat-set inserts in each part and they're assembled together with a set screw.
 
-[screenshot]
+{{< figure src="actuator-xray.webp" alt="transparent view of actuator button" loading="lazy" >}}
 
-This is where the beveled edges on the enclosure became a problem. Having the button on the top of the radar would make it much thicker. I could make the button shaft visible from the front when looking at the display, but it doesn't look as true to the anime.
+This is where the beveled edges on the enclosure became a problem. Bear with me because this depedancy tree is a little convoluted. Because the switch is on the same PCB as the display, and switches are only available at certain hieghts, and the activation button must be on the same axis as the switch's actuator, the shaft for the activation button can't sit on the top of the enclosure like in the anime.
 
-[screenshot]
+{{< figure src="switch-actuator.webp" alt="switch and actuator side view" loading="lazy" >}}
 
-I'll probably print both options and decide which one I like more once they're in my hand
+{{< figure src="render-vs-anime.webp" alt="modeled activation button vs anime's activation button" loading="lazy" >}}
+
+This is fine for this first revision. I'll probably 3D print a non-functional version that looks more like the anime then decide which is better.
 
 ### Power Cable Routing
 
-For practical reasons, I wanted the radar to run off a rechargeable battery. The slot for the charger would be easiest to put into the enclosure's back, which would thus require a vertical connector. USB-C is the default nowadays, so I went with the USB440 series from GCT.
-
-[screenshot of rendered back]
-
-This ultimately resulted in some problems, but more on that in the bring up phase.
+For practical reasons, I wanted the radar to run off a rechargeable battery. The slot for the charger would be easiest to put into the enclosure's back, which would thus require a vertical connector. USB-C is the default nowadays, so I went with the USB440 series from GCT. This ultimately resulted in some problems, but more on that in the bring up phase.
 
 I'm doing a little time bending here because I placed the USB-C connector in the PCB layout before defining the charging port's location in the mechanical design. I did this because electrical constraints defined the connector's position more than mechanical ones.
 
@@ -264,17 +262,17 @@ Also, at this point I knew there was a lot of empty space on the board, so I did
 
 ### Mounting Points
 
-Snap-fits are the premiere way to assemble parts together, but I'm too lazy to iterate through a bunch of tolerances before everything assembles well. Instead, I used heat-set inserts to mount the PCB and assemble the enclosure together. To preserve [poka-yoke](https://en.wikipedia.org/wiki/Poka-yoke)(track this), I used different threads for the PCB mounting and enclosure
+Snap-fits are the premiere way to assemble parts together. But I'm too lazy to iterate through a bunch of tolerances before everything assembles well. Instead, I used heat-set inserts to mount the PCB and assemble the enclosure together. To preserve {{< tracked-anchor href="https://en.wikipedia.org/wiki/Poka-yoke" text="poka-yoke" >}}, I used different threads for the PCB mounting and fastening the enclosure front and back together.
 
-[PCB screenshot]
+{{< figure src="mounting-holes.webp" alt="render with PCB and enclosure mounting holes" loading="lazy" >}}
 
-M1 screws were surprisingly expensive to source from the usually suspects. I ultimately found some on Amazon.
+One of the sizes was M1 which were surprisingly expensive to source from the usually suspects. I ultimately found some on Amazon.
 
 ### Speaker
 
 The speakers I'm using thankfully ship with adhesive foam. I cut a small nest about ~0.25 mm bigger than the speaker in the enclosure's back as a mounting location. Hopefully the adhesive is enough to keep it into place. Add some holes so the sound escapes and mechanical design is done!
 
-[end product render]
+{{< figure src="speaker-nest.webp" alt="render of enclosure back" loading="lazy" >}}
 
 ## Electronics Design
 
@@ -282,7 +280,7 @@ The speakers I'm using thankfully ship with adhesive foam. I cut a small nest ab
 
 Adafruit did most of the work. "My" design is a mashup up of the Qualia board, MAX98357 breakout, and the charging circuit from the [Adafruit Feather ESP32-S3](https://learn.adafruit.com/assets/110822).
 
-["my" schematic]
+{{< figure src="schematic.webp" alt="schematic" loading="lazy" >}}
 
 The few modifications I made were:
 
@@ -301,43 +299,35 @@ The mechanical design dictated the position of the mounting holes, activation bu
 
 This choice forced me to rotate the ESP32 package 45 degrees to avoid a THT inside a keep-out zone. I put the ESP32 on the top right of the board to give the most amount of space to place other components.
 
-[pic of placement]
+{{< figure src="pcb-render.webp" alt="render of PCBA" loading="lazy" >}}
 
 I'm actually still violating the layout rules provided by Espressif. They recommend the antenna hang off the board ideally or, if not possible, the end of the antenna be at least 15 mm away from the board edge and that the feed point be max 2 mm from a board edge.
 
-[screenshot]
+{{< figure src="https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/_images/esp32s3-module-place-on-base-board-right.png" alt="hanging ESP32-WROOM guidelines" loading="lazy" >}}
+
+{{< figure src="https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/_images/esp32s3-module-clearance.png" alt="ESP32 module 15mm from board cutout and 1mm from board edge" loading="lazy" >}}
 
 If I hung the antenna off the board it'd collide with the enclosure and I didn't want to make the enclosure any larger.
 
-[screenshot]
+{{< figure src="esp32-placement-render.webp" alt="render of ESP32 module in assembly" loading="lazy" >}}
 
 To make rework and hand-soldering easier, I used 0805 sized components wherever I could. This would make my life easier once the boards came back.
 
 #### Stack-up
 
-I decided to do a 4 layer stack-up of `signal+ground/ground/ground/signal+ground`. 
-
-[stackup]
-
-The RGB565[^7] parallel signals were my greatest concern. The two inner ground layers would shield signals on layer 4 from the RGB.
-
-Layer 1 would have the USB[^8] 2.0 traces which technically should be fabricated to 90 ohm, but in practice I've never had problems omitting a controlled impedance. I still routed the signals differential though.
-
-The four layer stack-up also made it much easier to route 3.3 V power rail on layer 4.
+I decided to do a 1.6 mm thick (foreshadowing), 4 layer stack-up of `signal+ground/ground/ground/signal+ground`. The RGB565[^7] parallel signals were my greatest concern. The two inner ground layers would shield signals on layer 4 from the RGB. Layer 1 would have the USB[^8] 2.0 traces which technically should be fabricated to 90 ohm, but in practice I've never had problems omitting a controlled impedance. I still routed the signals differential though. The four layer stack-up also made it much easier to route 3.3 V power rail on layer 4.
 
 #### Routing
 
 The most interesting part to route was the USB-C connector. It has a keep-out zone near the pads that make it almost impossible to connect the USB D+/D- pins and VBUS[^9] pins together.
 
-[screenshot of datasheet keep out]
+{{< figure src="usbc-drawing.webp" alt="USB-C connector keepout zone" loading="lazy" >}}
 
-I interpreted the keep-out zone as only for components and not for all copper. I'm justifying this conclusion with the metal flaps on the side of the connector (These will rear their ugly head once the board is made).
+I interpreted the keep-out zone as only for components and not for all copper. I'm justifying this conclusion with the metal flaps on the side of the connector (these will rear their ugly head once the board is made).
 
 [photo of metal flaps]
 
 Everything else was fairly straight forward to route. I did have to rotate most things 45 degrees so the traces we're neater. Here's the final layout.
-
-[screenshot of layout]
 
 ### Ordering
 
