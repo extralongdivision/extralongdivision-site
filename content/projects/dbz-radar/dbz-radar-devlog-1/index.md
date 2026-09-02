@@ -1,6 +1,6 @@
 ---
 date: '2026-08-29 02:38:17 +0000 UTC'
-draft: true
+draft: false
 title: 'Dragon Ball Radar: Devlog 1 - Frankenstein'
 #
 # EDIT THESE

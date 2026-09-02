@@ -1,4 +1,4 @@
-<!--themes/PaperMod/list.html-->
+<!--themes/PaperMod/layouts/list.html-->
 {{- define "main" }}
 
 {{- if (and site.Params.profileMode.enabled .IsHome) }}
@@ -39,12 +39,8 @@
 </div>
 {{- end }}
 
-<!--only show project content-->
-{{- $pages := where site.RegularPages "Type" "projects" }}
-
-{{- if .IsHome }}
-    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
-{{- end }}
+<!--Changed to only project regular pages-->
+{{- $pages = (where site.RegularPages "Section" "projects") }}
 
 {{- $paginator := .Paginate $pages }}
 
