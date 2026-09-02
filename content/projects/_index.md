@@ -1,4 +1,5 @@
 ---
 title: "Projects"
-layout: "project-list"
+layout: "list"
+type: "section"
 ---
