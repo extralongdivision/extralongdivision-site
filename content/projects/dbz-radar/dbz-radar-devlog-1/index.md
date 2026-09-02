@@ -164,13 +164,13 @@ Those familiar with the Dragon Ball series will know the radar makes this sound:
 
 My implementation didn't sound as good. I bought a breakout board for the same I2S[^2] chip used in the above demo, the MAX98357, and connected it to the Qualia board.
 
-{{< figure src="sound-prototype.webp" alt="qualia and MAX98357 breakout prototype" loading="lazy" >}}
+{{< figure src="sound-prototype.webp" alt="Qualia and MAX98357 breakout prototype" loading="lazy" >}}
 
 The first audio file in this section sounded like this played through my prototype hardware (put the volume down):
 
 {{< audio src="cursed-beep.ogg" >}}
 
-The crackling sound is not your speakers. That's actually what was coming out of my breadboard set up. I used, what I believe to be, the same speakers as the one Adafruit demoed as well as a 8 ohm variant, but that didn't change anything. Changing the gain or the stereo/L/R output of the amp didn't fix the issue either.
+The crackling sound is not your speakers. That's actually what was coming out of my breadboard set up. I used, what I believe to be, the same speakers as the one Adafruit demoed as well as a 8 ohm variant, but that didn't change anything. Modifying the gain or the stereo/L/R output of the amp didn't fix the issue either.
 
 I doubt the code is suspect but here it is in case you can find something wrong with it.
 
@@ -203,13 +203,13 @@ while True:
         pass
 ```
 
-I don't have a lot of familiarity with I2S or sound circuits in general. Since *something* played I suspect the haphazard wiring is the culprit. Hopefully a PCB[^3] will fix the issue. So I pressed on into electrical-mechanical design.
+I don't have a lot of familiarity with I2S or sound circuits in general. Since *something* played I suspect the haphazard wiring is the culprit. Hopefully a PCB[^3] will fix the issue. So I pressed on to electrical-mechanical design.
 
 ## Enclosure Design
 
 ### Display Mounting
 
-Given the unique shape of the Dragon Radar, I started with designing a 3D model. In the anime, the Dragon Radar took on slightly different looks.
+Given the unique shape of the Dragon Radar, I started with designing a 3D model. In the anime, the it took on slightly different looks.
 
 {{< figure src="dragon-radars.webp" alt="dragon radars" loading="lazy" >}}
 
@@ -224,11 +224,11 @@ I decided to use the 4" display, HD40015C40, since I figured a display that was 
 
 {{< figure src="HD40015C40-drawing.webp" alt="display mechanical drawing" loading="lazy" >}}
 
-It was in chinglish and honestly frustrating to interpret, but the visible pixels on the screen are not centered in the display assembly. In fact, the center of the bounding box of the display assembly and the center of the active pixel area is offset by 2.44 mm.
+It was in Chinglish and honestly frustrating to interpret. What I could figure, though, was the visible pixels on the screen are not centered in the display assembly. In fact, the center of the display assembly's bounding box and the center of the active pixel area are offset by 2.44 mm.
 
 {{< figure src="aa-offset.webp" alt="render of screen and display assembly" loading="lazy" >}}
 
-I was able to reduce the offset to 1.5 mm in the opposite direction with the activiation button's placement. I used a THT[^4] switch for mechanical strength, but this forced the PCB to be bigger than the display so the switch's leads didn't interfere with the display.
+I was able to reduce the offset to 1.5 mm in the opposite direction with the activation button's placement. I used a THT[^4] switch for mechanical strength, which forced the PCB to be bigger than the display so the switch's leads didn't cause a collision.
 
 {{< figure src="aa-pcb-offset.webp" alt="render of display on PCBA" loading="lazy" >}}
 
@@ -240,21 +240,21 @@ This is close enough to the anime. Finishing the mechanical design for the user 
 
 ### Activation Button
 
-The button to turn the device on and off is actually an assembly of a shaft and cap. There's heat-set inserts in each part and they're assembled together with a set screw.
+The button to turn the device on and off is actually an assembly of a shaft and cap. There's heat-set inserts in each part and they're assembled together with a set-screw.
 
 {{< figure src="actuator-xray.webp" alt="transparent view of actuator button" loading="lazy" >}}
 
-This is where the beveled edges on the enclosure became a problem. Bear with me because this depedancy tree is a little convoluted. Because the switch is on the same PCB as the display, and switches are only available at certain hieghts, and the activation button must be on the same axis as the switch's actuator, the shaft for the activation button can't sit on the top of the enclosure like in the anime.
+This is where the beveled edges on the enclosure became a problem. Bear with me because this depedancy tree is a little convoluted. Because the switch is on the same PCB as the display, and switches are only available at certain hieghts, and the activation button must be on the same axis as the switch's actuator: the shaft for the activation button can't sit on the top of the enclosure like in the anime.
 
 {{< figure src="switch-actuator.webp" alt="switch and actuator side view" loading="lazy" >}}
 
 {{< figure src="render-vs-anime.webp" alt="modeled activation button vs anime's activation button" loading="lazy" >}}
 
-This is fine for this first revision. I'll probably 3D print a non-functional version that looks more like the anime then decide which is better.
+This is fine for this first revision. I'll probably 3D print a nonfunctional version that looks more like the anime then decide which is better.
 
 ### Power Cable Routing
 
-For practical reasons, I wanted the radar to run off a rechargeable battery. The slot for the charger would be easiest to put into the enclosure's back, which would thus require a vertical connector. USB-C is the default nowadays, so I went with the USB440 series from GCT. This ultimately resulted in some problems, but more on that in the bring up phase.
+For practical reasons, I wanted the radar to run off a rechargeable battery. The slot for the charger would be easiest to put into the enclosure's back, which would thus require a vertical connector. USB-C is the default nowadays, so I went with the USB4220 series from GCT. This ultimately resulted in some problems, but more on that in the bring up phase.
 
 I'm doing a little time bending here because I placed the USB-C connector in the PCB layout before defining the charging port's location in the mechanical design. I did this because electrical constraints defined the connector's position more than mechanical ones.
 
@@ -301,13 +301,13 @@ This choice forced me to rotate the ESP32 package 45 degrees to avoid a THT insi
 
 {{< figure src="pcb-render.webp" alt="render of PCBA" loading="lazy" >}}
 
-I'm actually still violating the layout rules provided by Espressif. They recommend the antenna hang off the board ideally or, if not possible, the end of the antenna be at least 15 mm away from the board edge and that the feed point be max 2 mm from a board edge.
+I'm actually still violating the layout rules provided by Espressif. They recommend the antenna hang off the board ideally or, if not possible, the end of the antenna be at least 15 mm away from a cutout and that the feed point be max 2 mm from a board edge.
 
 {{< figure src="https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/_images/esp32s3-module-place-on-base-board-right.png" alt="hanging ESP32-WROOM guidelines" loading="lazy" >}}
 
 {{< figure src="https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/_images/esp32s3-module-clearance.png" alt="ESP32 module 15mm from board cutout and 1mm from board edge" loading="lazy" >}}
 
-If I hung the antenna off the board it'd collide with the enclosure and I didn't want to make the enclosure any larger.
+If I hung the antenna off the board it'd collide with the enclosure and I didn't want to make it any larger.
 
 {{< figure src="esp32-placement-render.webp" alt="render of ESP32 module in assembly" loading="lazy" >}}
 
@@ -321,7 +321,7 @@ I decided to do a 1.6 mm thick (foreshadowing), 4 layer stack-up of `signal+grou
 
 The most interesting part to route was the USB-C connector. It has a keep-out zone near the pads that make it almost impossible to connect the USB D+/D- pins and VBUS[^10] pins together.
 
-{{< figure src="usbc-drawing.webp" alt="USB-C connector keepout zone" loading="lazy" >}}
+{{< figure src="usbc-drawing.webp" alt="USB-C connector keep out zone" loading="lazy" >}}
 
 I interpreted the keep-out zone as only for components and not for all copper. I'm justifying this conclusion with the metal flaps on the side of the connector (these will rear their ugly head once the board is made).
 
@@ -343,15 +343,15 @@ Once the boards came back, I realized just how large they are.
 
 {{< figure src="board-in-hand.webp" alt="PCBA in my hand" loading="lazy" >}}
 
-The PCBA[^12] are about as large as they can comfortably fit in my hand and that's before they're put in a larger assembly. I'll certainly have to use a wrist strap for the final build.
+The PCBAs[^12] are about as large as they can comfortably fit in my hand and that's before they're put in a larger assembly. I'll certainly have to use a wrist strap for the final build.
 
-### Smoke test
+### Smoke Test
 
-I plugged in a battery into the board and... smoke. Quickly, I realized my mistake. I swapped the battery connector polarity. The Adafruit designed I based it on used a horizontal connector, while mine is vertical. This shouldn't matter, but the manufacturere flipped the location of pin 1 on the datasheet.
+I plugged in a battery into the board and… smoke. Quickly, I realized my mistake. I swapped the battery connector polarity. The Adafruit designed I based it on used a horizontal connector, while mine is vertical. This shouldn't matter, but the manufacturer flipped the location of pin 1 on the datasheet.
 
 {{< figure src="jst-ph-footprint.webp" alt="battery connector footprint" loading="lazy" >}}
 
-I should've caught this, but I will remind JST that pin 1 should be in the top left of a footprint to comply with an IPC[^13] {{< tracked-anchor href="https://www.protoexpress.com/blog/features-of-ipc-7351-standards-to-design-pcb-component-footprint/#zero-component-orientation" text="7351" >}}. Thankfully Q1 and D7 act as reverse polarity protection for the rest of the circuitry.
+I should've caught this, but I will remind JST that pin 1 should be on the top left of a footprint to comply with an IPC[^13] {{< tracked-anchor href="https://www.protoexpress.com/blog/features-of-ipc-7351-standards-to-design-pcb-component-footprint/#zero-component-orientation" text="7351" >}}. Thankfully Q1 and D7 act as reverse polarity protection for the rest of the circuitry.
 
 {{< figure src="q1-d7.webp" alt="reverse polarity circuit" loading="lazy" >}}
 
@@ -363,9 +363,9 @@ While earlier I mentioned how surprisingly large the board was. The USB-C pads w
 
 {{< figure src="usbc-pads.webp" alt="unpopulated USB-C connector" loading="lazy" >}}
 
-I figured I had my work cutout for me, but then I placed the USB-C connector in on the board and spotted another grievous error. The mounting pins for the connector were 1.2 mm long, but the board is 1.6 mm thick.
+I figured I had my work cutout for me, but then I placed the USB-C connector on the board and spotted another grievous error. The mounting pins for the connector were 1.2 mm long, but the board is 1.6 mm thick.
 
-{{< figure src="usbc-tht-length.webp" alt="usb connecotr mounting pin drawing" loading="lazy" >}}
+{{< figure src="usbc-tht-length.webp" alt="USB connector mounting pin drawing" loading="lazy" >}}
 
 Even if it was in stock, no company on the planet could assemble the connector onto the board. The next revision will have to use a thinner PCB. If you scroll up to the [PCB Routing section](#routing) you'll notice the footprint has a 1.2 mm PCB thickness recommendation.
 
@@ -373,7 +373,7 @@ But the mistakes didn't end there. With the connector on the board, the SMT[^14]
 
 {{< figure src="usb-connector-on-board.webp" alt="USB connector on PCB" loading="lazy" >}}
 
-Thankfully, the connector I chose was USB 2.0, not 3.0. With some bodge wires and a spare USB-A plug, I made a haphazard USB cable... which created a short across VBUS and ground. My second attempt worked though. I was able to flash the ESP32 with CircuitPython and upload code to it 😎.
+Thankfully, the connector I chose was USB 2.0, not 3.0. With some bodge wires and a spare USB-A plug, I made a haphazard USB cable… which created a short across VBUS and ground. My second attempt worked though. I was able to flash the ESP32 with CircuitPython and upload code to it 😎.
 
 {{< figure src="bodge-cable.webp" alt="bodged on USB 2.0 cable" loading="lazy" >}}
 
@@ -383,7 +383,7 @@ Also, the process to get CircuitPython on my board was slightly different than t
 
 ### Battery Charging/Monitoring
 
-I had some faith the battery charger, MCP73831, still functioned because it's status LED blinked when the board was on with no battery connected. In the absence of a battery emulator, I connected a lipo[^16] to the board with some hook-to-DuPont connectors, a 2-pin JST-PH pigtail cable, and the enduring will of the human spirit.
+I had some faith the battery charger, MCP73831, still functioned because its status LED blinked when the board was on with no battery connected. In the absence of a battery emulator, I connected a lipo[^16] to the board with some hook-to-DuPont connectors, a 2-pin JST-PH pigtail cable, and the enduring will of the human spirit.
 
 {{< figure src="battery-bodge.webp" alt="battery questionably attached to the board" loading="lazy" >}}
 
@@ -391,7 +391,7 @@ According to the datasheet, the status LED should be on during charging and off 
 
 {{< figure src="charge-stat-table.webp" alt="MCP73831 STAT pin truth table" loading="lazy" >}}
 
-This is exactly what happened. I found a some CircuitPython test code for the battery monitor and easily read the battery voltage.
+This is exactly what happened. I found a some CircuitPython test code for the battery monitor and easily read the voltage.
 
 ```python
 # SPDX-FileCopyrightText: Copyright (c) 2022 ladyada for Adafruit Industries
@@ -430,9 +430,9 @@ I didn't bother testing how accurate the monitor was as the battery discharged s
 
 ### Display
 
-I plugged in a known good 4" display into my PCBA and programmed the board with example code and... nothing. The display's back-light turned on which tells me that the pin-out for the connector was correct and that I2C[^17] works (only partially true, keep reading) since the I2C expander controls the LED driver.
+I plugged in a known good 4" display into my PCBA, programmed the board with example code, and… nothing. The display's back-light turned on which tells me that the pin-out for the connector was correct and that I2C[^17] works (only partially true, keep reading) since the I2C expander controls the LED driver.
 
-I began to search TTL[^18] RGB routing guidelines to see if I violated any rules, but I didn't find anything specific. What ultimately led me to the error was comparing the waveforms on my board vs the Qualia. All the RGB565 signals looked fine, but the I2C expander, the PCA9554, sent SPI[^19] signals to the display at start on the Qualia. There were no SPI signals on my board. The ESP32 produced the expected I2C signals, but the PCA9554 didn't respond. I realized the problem after doing a port scan.
+I began to search TTL[^18] RGB routing guidelines to see if I violated any rules, but I didn't find anything specific. What ultimately led me to the cause was comparing the waveforms on my board vs the Qualia. All the RGB565 signals looked fine, but when the Qualia booted, its I2C expander (the PCA9554) sent SPI[^19] signals to the display. There were no SPI signals on my board. The ESP32 produced the expected I2C signals, but the PCA9554 didn't respond. I realized the problem after doing a port scan.
 
 The example code from Adafruit assumed the I2C address was `0x63`while my board configures it to `0x27`. I actually left a note about this confusion on my schematic.
 
@@ -442,17 +442,17 @@ Setting the proper I2C address made the display work properly.
 
 ### Sound
 
-When plugged in a speaker and loaded up example code... nothing. Not even the crackling sound I heard during the prototyping phase. I probed the pins of the I2S chip, the MAX98357, and quickly realized the pin assignment for the PCB and the breadboard prototype were different.
+When I plugged in a speaker and loaded up example code… nothing. Not even the crackling sound I heard during the prototyping phase. I probed the pins of the I2S chip, the MAX98357, and quickly realized the pin assignment for the PCB and the breadboard prototype were different.
 
 For easier routing, I made the following changes from prototype to PCB:
 
-| MAX98357 Pin     | Qualia Pin Assignment  | Custom Board Asignment |
-| ---------------- | ---------------------- | ---------------------- |
-| Bit Clock        | board.A1               | board.A0               |
-| Left/Right Clock | board.A0               | board.RX               |
-| Data In          | board.TX               | board.A1               |
+| MAX98357 Pin     | Qualia Pin Assignment  | Custom Board Assignment |
+| ---------------- | ---------------------- | ----------------------- |
+| Bit Clock        | board.A1               | board.A0                |
+| Left/Right Clock | board.A0               | board.RX                |
+| Data In          | board.TX               | board.A1                |
 
-The sound output was clean too. This makes me confident that the horrendous sound coming out of the prototyp was due to bad wiring.
+Everything worked after changing the pin assignments in firmware. The sound output was clean too. This makes me confident that the horrendous sound coming out of the prototype was due to bad wiring.
 
 While I'm 99% sure the mismapped pinout was the only problem, before I discovered it, I replaced the pull up resistor on the `SD_MODE` pin with an 1M ohm one to match Adafruit's breakout board. I would swap back to the original 5.1k resistor, but I consider the board verified at this point.
 
@@ -462,7 +462,7 @@ While I'm 99% sure the mismapped pinout was the only problem, before I discovere
 
 - I have to make the board thinner.
 
-That's it. Not bad for a first revision. At this point, I could try to assemble the display and PCB into the enclosure, but it'd be inconvienent to have to dissemble the entire project just to charge the battery. I'll sort out mechanical assembly once the new PCB comes in.
+That's it. Not bad for a first revision. At this point, I could try to assemble the display and PCB into the enclosure, but it'd be inconvenient to have to disassemble the entire project just to charge the battery. I'll sort out mechanical assembly once the new PCB comes in.
 
 The repository for this project, though completely undocumented as of writing this, is hosted on {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar" text="Codeberg." >}}. I'll post another write up here when it's ready. [Subscribe to my RSS feed]({{< ref-projects-rss-feed >}}) to get the update as soon as it drops.
 
