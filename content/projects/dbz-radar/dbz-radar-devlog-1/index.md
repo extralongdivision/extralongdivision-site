@@ -286,8 +286,8 @@ The few modifications I made were:
 
 - Remove the `DN` and `UP` buttons and replaced them with the button chosen in the mechanical enclosure section
 - Remove the STEMMA QT/Qwiic connector
-- Replace the JST connector with 2.54" spaced THTs[^4] and connected all unused IO[^4.5] to it
-- Add a heartbeat LED[^5]
+- Replace the JST connector with 2.54" spaced THTs and connected all unused IO[^5] to it
+- Add a heartbeat LED[^6]
 - Replaced jumpers with 0 ohm resistors, depopulating the ones I don't want
 - Various quality of life changes like adding more test points and egregious amount of 0 ohm resistors in series with interesting traces
 
@@ -295,7 +295,7 @@ The few modifications I made were:
 
 #### Placement
 
-The mechanical design dictated the position of the mounting holes, activation button, and the FFC[^6] connector (*technically I could physically rotate the display and rotate the image in software but I opted just to put the connector and activation button at the vertical symmetrical axis of the device*).
+The mechanical design dictated the position of the mounting holes, activation button, and the FFC[^7] connector (*technically I could physically rotate the display and rotate the image in software but I opted just to put the connector and activation button at the vertical symmetrical axis of the device*).
 
 This choice forced me to rotate the ESP32 package 45 degrees to avoid a THT inside a keep-out zone. I put the ESP32 on the top right of the board to give the most amount of space to place other components.
 
@@ -315,23 +315,23 @@ To make rework and hand-soldering easier, I used 0805 sized components wherever 
 
 #### Stack-up
 
-I decided to do a 1.6 mm thick (foreshadowing), 4 layer stack-up of `signal+ground/ground/ground/signal+ground`. The RGB565[^7] parallel signals were my greatest concern. The two inner ground layers would shield signals on layer 4 from the RGB. Layer 1 would have the USB[^8] 2.0 traces which technically should be fabricated to 90 ohm, but in practice I've never had problems omitting a controlled impedance. I still routed the signals differential though. The four layer stack-up also made it much easier to route 3.3 V power rail on layer 4.
+I decided to do a 1.6 mm thick (foreshadowing), 4 layer stack-up of `signal+ground/ground/ground/signal+ground`. The RGB565[^8] parallel signals were my greatest concern. The two inner ground layers would shield signals on layer 4 from the RGB. Layer 1 would have the USB[^9] 2.0 traces which technically should be fabricated to 90 ohm, but in practice I've never had problems omitting a controlled impedance. I still routed the signals differential though. The four layer stack-up also made it much easier to route 3.3 V power rail on layer 4.
 
 #### Routing
 
-The most interesting part to route was the USB-C connector. It has a keep-out zone near the pads that make it almost impossible to connect the USB D+/D- pins and VBUS[^9] pins together.
+The most interesting part to route was the USB-C connector. It has a keep-out zone near the pads that make it almost impossible to connect the USB D+/D- pins and VBUS[^10] pins together.
 
 {{< figure src="usbc-drawing.webp" alt="USB-C connector keepout zone" loading="lazy" >}}
 
 I interpreted the keep-out zone as only for components and not for all copper. I'm justifying this conclusion with the metal flaps on the side of the connector (these will rear their ugly head once the board is made).
 
-[photo of metal flaps]
+{{< figure src="usb-flap.webp" alt="metal slaps of USB-C connector" loading="lazy" >}}
 
-Everything else was fairly straight forward to route. I did have to rotate most things 45 degrees so the traces we're neater. Here's the final layout.
+Everything else was fairly straight forward to route.
 
 ### Ordering
 
-While ordering the board, I realized that I assigned a 100 *uF* decoupling capacitor for the ESP32 instead of a 100 *nF* cap. If you hadn't caught on to the trend, I am lazy. I didn't want to regenerate the gerbers so I just DNP[^10]'d the cap.
+While ordering the board, I realized that I assigned a 100 *uF* decoupling capacitor for the ESP32 instead of a 100 *nF* cap. If you hadn't caught on to the trend, I am lazy. I didn't want to regenerate the gerbers so I just DNP[^11]'d the cap.
 
 The USB-C connector was also out-of-stock. I already designed the mechanical enclosure around that connectors height and (re: lazy) DNP'd that part thinking I could hand solder it on once the boards arrive. That was not a safe assumption.
 
@@ -341,21 +341,19 @@ The USB-C connector was also out-of-stock. I already designed the mechanical enc
 
 Once the boards came back, I realized just how large they are.
 
-[Photo in my hand]
+{{< figure src="board-in-hand.webp" alt="PCBA in my hand" loading="lazy" >}}
 
-The PCBA[^11] are about as large as they can comfortably fit in my hand and that's before they're put in a larger assembly. I'll certainly have to use a wrist strap for the final build.
+The PCBA[^12] are about as large as they can comfortably fit in my hand and that's before they're put in a larger assembly. I'll certainly have to use a wrist strap for the final build.
 
 ### Smoke test
 
-I plugged in a battery into the board and... smoke. Quickly, I realized my mistake. I swapped the battery connector polarity. The Adafruit design I based it on used pin 1 as ground and pin 2 as the positive battery terminal. My schematic matched that, but the footprint mismatched the manufacturer's drawing.
+I plugged in a battery into the board and... smoke. Quickly, I realized my mistake. I swapped the battery connector polarity. The Adafruit designed I based it on used a horizontal connector, while mine is vertical. This shouldn't matter, but the manufacturere flipped the location of pin 1 on the datasheet.
 
-[manufacturing pin 1 location vs KiCad]
+{{< figure src="jst-ph-footprint.webp" alt="battery connector footprint" loading="lazy" >}}
 
-I should've caught this, but the root-cause is KiCad's built-in libraries having the wrong pin assignment.
+I should've caught this, but I will remind JST that pin 1 should be in the top left of a footprint to comply with an IPC[^13] {{< tracked-anchor href="https://www.protoexpress.com/blog/features-of-ipc-7351-standards-to-design-pcb-component-footprint/#zero-component-orientation" text="7351" >}}. Thankfully Q1 and D7 act as reverse polarity protection for the rest of the circuitry.
 
-Thankfully Q1 and D7 act as reverse polarity protection for the rest of the circuitry.
-
-[screenshot of Q1 & D7]
+{{< figure src="q1-d7.webp" alt="reverse polarity circuit" loading="lazy" >}}
 
 ### USB-C
 
@@ -363,35 +361,35 @@ Now comes the most egregious mistake I made in the design that I so un-elegantly
 
 While earlier I mentioned how surprisingly large the board was. The USB-C pads were surprisingly *small*.
 
-[Photo of pads]
+{{< figure src="usbc-pads.webp" alt="unpopulated USB-C connector" loading="lazy" >}}
 
 I figured I had my work cutout for me, but then I placed the USB-C connector in on the board and spotted another grievous error. The mounting pins for the connector were 1.2 mm long, but the board is 1.6 mm thick.
 
-[screenshot of datasheet]
+{{< figure src="usbc-tht-length.webp" alt="usb connecotr mounting pin drawing" loading="lazy" >}}
 
-Even if it was in stock, no fabricator on the planet could assemble the connector onto the board. The next revision will have to be 0.8 mm thick.
+Even if it was in stock, no company on the planet could assemble the connector onto the board. The next revision will have to use a thinner PCB. If you scroll up to the [PCB Routing section](#routing) you'll notice the footprint has a 1.2 mm PCB thickness recommendation.
 
-But the mistakes didn't end there. With the connector on the board, the SMT[^12] pads are inaccessible thanks to those aforementioned side flaps.
+But the mistakes didn't end there. With the connector on the board, the SMT[^14] pads are inaccessible thanks to those aforementioned side flaps.
 
-[Photo of connector placed into board]
+{{< figure src="usb-connector-on-board.webp" alt="USB connector on PCB" loading="lazy" >}}
 
 Thankfully, the connector I chose was USB 2.0, not 3.0. With some bodge wires and a spare USB-A plug, I made a haphazard USB cable... which created a short across VBUS and ground. My second attempt worked though. I was able to flash the ESP32 with CircuitPython and upload code to it 😎.
 
-[photo of bodged]
+{{< figure src="bodge-cable.webp" alt="bodged on USB 2.0 cable" loading="lazy" >}}
 
-Notice how the D+/D- wires are on the side of ESD[^13] diode closest to the connector. This ensures that an ESD event doesn't damage the ESP32.
+Notice how the D+/D- wires are on the side of ESD[^15] diode closest to the connector. This ensures that an ESD event doesn't damage the ESP32.
 
 Also, the process to get CircuitPython on my board was slightly different than the Qualia. This is the tutorial I followed to do it: https://learn.adafruit.com/circuitpython-with-esp32-quick-start/installing-circuitpython.
 
 ### Battery Charging/Monitoring
 
-I had some faith the battery charger, MCP73831, was still functioned because it's status LED blinked when the board was on with no battery connected. In the absence of a battery emulator, I connected a lipo[^12.5] to the board with some hook-to-DuPont connectors, a 2-pin JST-PH pigtail cable, and the enduring will of the human spirit.
+I had some faith the battery charger, MCP73831, still functioned because it's status LED blinked when the board was on with no battery connected. In the absence of a battery emulator, I connected a lipo[^16] to the board with some hook-to-DuPont connectors, a 2-pin JST-PH pigtail cable, and the enduring will of the human spirit.
 
-[photo of contraption]
+{{< figure src="battery-bodge.webp" alt="battery questionably attached to the board" loading="lazy" >}}
 
-According to the datasheet, the status LED should be on during charging and off otherwise
+According to the datasheet, the status LED should be on during charging and off otherwise.
 
-[screenshot of datasheet]
+{{< figure src="charge-stat-table.webp" alt="MCP73831 STAT pin truth table" loading="lazy" >}}
 
 This is exactly what happened. I found a some CircuitPython test code for the battery monitor and easily read the battery voltage.
 
@@ -432,15 +430,13 @@ I didn't bother testing how accurate the monitor was as the battery discharged s
 
 ### Display
 
-I plugged in a known good 4" display into my PCBA and programmed the board with  example code and... nothing.
+I plugged in a known good 4" display into my PCBA and programmed the board with example code and... nothing. The display's back-light turned on which tells me that the pin-out for the connector was correct and that I2C[^17] works (only partially true, keep reading) since the I2C expander controls the LED driver.
 
-[photo]?
-
-The display's back-light turned on which tells me that the pin-out for the connector was correct and that I2C[^14] works (only partially true, keep reading) since the I2C expander controls the LED driver. I began to search TTL[^15] RGB routing guidelines to see if I violated any rules, but I didn't find anything specific. What ultimately led me to the error was comparing the waveforms on my board vs the Qualia. All the RGB565 signals looked fine, but the I2C expander, the PCA9554, sent no SPI[^16] signals to the display. The ESP32 produced the expected I2C signals, but the PCA9554 didn't respond. I realized the problem after doing a port scan.
+I began to search TTL[^18] RGB routing guidelines to see if I violated any rules, but I didn't find anything specific. What ultimately led me to the error was comparing the waveforms on my board vs the Qualia. All the RGB565 signals looked fine, but the I2C expander, the PCA9554, sent SPI[^19] signals to the display at start on the Qualia. There were no SPI signals on my board. The ESP32 produced the expected I2C signals, but the PCA9554 didn't respond. I realized the problem after doing a port scan.
 
 The example code from Adafruit assumed the I2C address was `0x63`while my board configures it to `0x27`. I actually left a note about this confusion on my schematic.
 
-[screenshot]
+{{< figure src="io-expander-schematic.webp" alt="schematic of IO expander" loading="lazy" >}}
 
 Setting the proper I2C address made the display work properly.
 
@@ -450,13 +446,15 @@ When plugged in a speaker and loaded up example code... nothing. Not even the cr
 
 For easier routing, I made the following changes from prototype to PCB:
 
-| MAX98357 Pin     | Prototype Pin Assignment | Custom Board Asignment |
-| ---------------- | ------------------------ | ---------------------- |
-| Bit Clock        | board.A1                 | board.A0               |
-| Left/Right Clock | board.A0                 | board.RX               |
-| Data In          | board.TX                 | board.A1               |
+| MAX98357 Pin     | Qualia Pin Assignment  | Custom Board Asignment |
+| ---------------- | ---------------------- | ---------------------- |
+| Bit Clock        | board.A1               | board.A0               |
+| Left/Right Clock | board.A0               | board.RX               |
+| Data In          | board.TX               | board.A1               |
 
-While I'm 99% sure this was the only problem, before I discovered the pin mismatch I replaced the pull up resistor on the `SD_MODE` pin with an 1M ohm one to match Adafruit's breakout board. I would swap back to the original 5.1k resistor, but I consider the board verified at this point.
+The sound output was clean too. This makes me confident that the horrendous sound coming out of the prototyp was due to bad wiring.
+
+While I'm 99% sure the mismapped pinout was the only problem, before I discovered it, I replaced the pull up resistor on the `SD_MODE` pin with an 1M ohm one to match Adafruit's breakout board. I would swap back to the original 5.1k resistor, but I consider the board verified at this point.
 
 ## Next Steps
 
@@ -464,9 +462,9 @@ While I'm 99% sure this was the only problem, before I discovered the pin mismat
 
 - I have to make the board thinner.
 
-That's it. Not bad for a first revision. At this point, I could try to assemble the display and PCB into the enclosure, but it'd be inconvienent to have to dissemble the entire project just to charge the battery. I'll sort out mechanical assembly once the new pCB comes in.
+That's it. Not bad for a first revision. At this point, I could try to assemble the display and PCB into the enclosure, but it'd be inconvienent to have to dissemble the entire project just to charge the battery. I'll sort out mechanical assembly once the new PCB comes in.
 
-The repository for this project, though completely undocumented as of writing this, is available at [https://codeberg.org/extralongdivision/dbz-radar](track this). I'll post another write up here when it's ready. [Subscribe to my RSS feed](projects link) to get the update as soon as it drops.
+The repository for this project, though completely undocumented as of writing this, is hosted on {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar" text="Codeberg." >}}. I'll post another write up here when it's ready. [Subscribe to my RSS feed]({{< ref-projects-rss-feed >}}) to get the update as soon as it drops.
 
 {{< eld-byline >}}
 
@@ -482,30 +480,32 @@ The repository for this project, though completely undocumented as of writing th
 
 [^4]: through hole technology
 
-[^4.5]: input/output
+[^5]: input/output
 
-[^5]: light emitting diode
+[^6]: light emitting diode
 
-[^6]: flat flex cable
+[^7]: flat flex cable
 
-[^7]: red, blue, green 5 bit, 6 bit, 5 bit
+[^8]: red, blue, green 5 bit, 6 bit, 5 bit
 
-[^8]: Universal serial bus
+[^9]: Universal serial bus
 
-[^9]: voltage bus
+[^10]: voltage bus
 
-[^10]: do not populate
+[^11]: do not populate
 
-[^11]: printed circuit board assembly
+[^12]: printed circuit board assembly
 
-[^12]: surface mount technology
+[^13]: previously known as Institute of Printed Circuits, but known known as Global Electronics Association
 
-[^12.5]: lithium polymer battery
+[^14]: surface mount technology
 
-[^13]: electrostatic discharge or "static shock"
+[^15]: electrostatic discharge or "static shock"
 
-[^14]: inter-integrated circuit
+[^16]: lithium polymer battery
 
-[^15]: transistor-transistor logic
+[^17]: inter-integrated circuit
 
-[^16]: serial peripheral interface
+[^18]: transistor-transistor logic
+
+[^19]: serial peripheral interface
