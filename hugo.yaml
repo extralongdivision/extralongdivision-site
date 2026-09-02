@@ -43,9 +43,9 @@ params:
     imageHeight: 128 # custom size
     buttons:
     - name: Dragon Ball Radar
-      url: projects/dbz-radar/dbz-radar-devlog-1/ # FIXME WET projects path
+      url: projects/dbz-radar/dbz-radar-devlog-1/  # FIXME WET canonicalURL
     - name: Subscribe via RSS
-      url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET RSS feed
+      url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET archive RSS parameter
 
   socialIcons: # optional
     - name: "codeberg"
@@ -81,6 +81,8 @@ params:
   emdash_slug: "idgaf-im-still-using-the-emdash"
   jargon_slug: "please-define-your-jargon"
   images_dir: "images/"  # in deployed directory, not in repo
+  archive_rss_url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET RSS button
+  articles_rss_url: "https://cloud.umami.is/q/duDxrD0pM"
   projects_rss_url: "https://cloud.umami.is/q/4vO3PdsPN"
 
 menu:

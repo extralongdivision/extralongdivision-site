@@ -63,8 +63,10 @@
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
       <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
+      <image>
+        <url>https://cloud.umami.is/p/O9irZWsyx</url>
+      </image>
       {{- if and site.Params.ShowFullTextinRSS .Content }}
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://cloud.umami.is/p/O9irZWsyx" medium="image" type="image/jpeg" width="1" height="1" />
       <content:encoded>{{ (printf "<![CDATA[%s]]>" .Content) | safeHTML }}</content:encoded>
       {{- end }}
     </item>

@@ -75,7 +75,7 @@ Write your post as you normally would, then, for any acronym, add a footnote. Yo
 
 Seasoned web developers didn't need to read the footnote to know what MV3 meant. Everyone else has already scrolled down, read the definition, and continued reading. Footnotes are friction-less to knowledge area experts and immensely helpful to everyone else.
 
-Do us all a favor [—]({{< relref-emdash-url >}}) please define your jargon.
+Do us all a favor [—]({{< ref-emdash-url >}}) please define your jargon.
 
 {{< eld-byline >}}
 

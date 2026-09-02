@@ -52,7 +52,7 @@ Finally, l also track when users leave via external links. The link to Umami in 
 
 Not something most sites will encourage you to do. It's easy on this site though: {{< tracked-anchor href="https://www.howtogeek.com/how-to-enable-do-not-track-in-any-web-browser/" text="enable Do-Not-Track" >}}. I've configured Umami to respect it. From my testing, you can leave Javascript and images enabled to traverse with an invisibility cloak (or at least invisible to me).
 
-[Why are there footnotes?]({{< relref-jargon-url >}})
+[Why are there footnotes?]({{< ref-jargon-url >}})
 
 [^1]: free (as in beer) libre open source software
 

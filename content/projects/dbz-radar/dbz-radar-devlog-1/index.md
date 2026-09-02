@@ -470,7 +470,7 @@ The repository for this project, though completely undocumented as of writing th
 
 {{< donations >}}
 
-[Why are there footnotes?]({{< relref-jargon-url >}})
+[Why are there footnotes?]({{< ref-jargon-url >}})
 
 [^1]: developer
 

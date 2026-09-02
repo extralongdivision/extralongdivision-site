@@ -12,7 +12,7 @@ Below is a curated list of RSS[^1] feeds.
 
 - [Projects]({{< ref-projects-rss-feed >}})
 
-[Why are there footnotes?]({{< relref-jargon-url >}})
+[Why are there footnotes?]({{< ref-jargon-url >}})
 
 [^1]: really simple syndication; if you're on this page you probably already know what that is :)
 

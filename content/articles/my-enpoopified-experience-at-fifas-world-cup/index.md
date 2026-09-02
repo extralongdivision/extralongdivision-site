@@ -45,7 +45,7 @@ UseHugoToc: false
 
 ## An Ode to the Ticket Stub
 
-On March 2, 1962, Wilt Chamberlain scored 100 points in a single game [—]({{< relref-emdash-url >}}) an NBA[^1] record to this day. Why discuss basketball on a World Cup post? {{< tracked-anchor text="Because 100,000 people say they attended that game, but the venue sat less than 5,000" href="https://shibevintagesports.com/blogs/news/the-night-wilt-scored-100-as-told-by-harvey-pollack" >}}. So how do you differentiate the eyewitnesses from the liars? Easy: ticket stubs.
+On March 2, 1962, Wilt Chamberlain scored 100 points in a single game [—]({{< ref-emdash-url >}}) an NBA[^1] record to this day. Why discuss basketball on a World Cup post? {{< tracked-anchor text="Because 100,000 people say they attended that game, but the venue sat less than 5,000" href="https://shibevintagesports.com/blogs/news/the-night-wilt-scored-100-as-told-by-harvey-pollack" >}}. So how do you differentiate the eyewitnesses from the liars? Easy: ticket stubs.
 
 They prove a fan's story and also serve as a life-long keepsake. But the ticket stub is dying a digital death. Do not confuse this post as an old man shaking his first at technology. Digital tickets are convenient. Can't be lost. Often, they update instantly if scheduling or seating changes.
 
@@ -209,7 +209,7 @@ I tried to craft my response to pander to FIFA's true intent: maximizing profit.
 
 I've done a lot of grumbling, but truly, the World Cup was an amazing experience. A decade from now, I will not remember the login loop. I will not remember fighting with an inch of black plastic to preserve a piece of clothe with ink on it. I'll remember singing my country's chants on the train to the stadium. Dancing with my countrymen after the match. Taking pictures with strangers from all over the globe because they liked my patriotic outfit.
 
-This is where I must admit, despite all the effort I went to salvage my wristband [—]({{< relref-emdash-url >}}) I still bought a replica ticket. Hypocritical for all the mud I just slang at FIFA. But when 2030 rolls around, that ticket will bring back memories even if it's a fake.
+This is where I must admit, despite all the effort I went to salvage my wristband [—]({{< ref-emdash-url >}}) I still bought a replica ticket. Hypocritical for all the mud I just slang at FIFA. But when 2030 rolls around, that ticket will bring back memories even if it's a fake.
 
 My money is the strongest weapon I have against ensh\*ttification, but I made FIFA's coffers heavier despite the hurdles they made me go through. Perhaps that's the balance companies must make now to maximize profit. Like slowly boiling a frog, FIFA added just enough ensh\*ttification to make me still want to attend their events. Instead of jumping out of the simmering pot, I will gladly save the date for the next tournament. Hopefully, I don't burn.
 
@@ -217,7 +217,7 @@ My money is the strongest weapon I have against ensh\*ttification, but I made FI
 
 {{< donations >}}
 
-[Why are there footnotes?]({{< relref-jargon-url >}})
+[Why are there footnotes?]({{< ref-jargon-url >}})
 
 [^1]: national basketball association
 

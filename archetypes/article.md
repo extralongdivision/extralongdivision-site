@@ -47,4 +47,4 @@ UseHugoToc: false
 
 {{< donations >}}
 
-[Why are there footnotes?]({{< relref-jargon-url >}})
+[Why are there footnotes?]({{< ref-jargon-url >}})

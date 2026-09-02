@@ -80,7 +80,7 @@ And when it's wrong, it's painful.
 
 Not the best corollary, but it adds a missing aspect to this quote. Countless times I've followed a guide and realized it's wrong. It either never was right, or it isn't now and the maker didn't bother updating it.
 
-The bad documentation problem is compounded by a recent trend: the dominant medium for knowledge is shifting from text to audio/video. For millennia, the most efficient way to preserve information was writing it down. But thanks to the attention economy, audio/video mediums are so dominant that, for example, it's standard marketing to make trailers for novels [—]({{< relref-emdash-url >}}) a written art form
+The bad documentation problem is compounded by a recent trend: the dominant medium for knowledge is shifting from text to audio/video. For millennia, the most efficient way to preserve information was writing it down. But thanks to the attention economy, audio/video mediums are so dominant that, for example, it's standard marketing to make trailers for novels [—]({{< ref-emdash-url >}}) a written art form
 
 Video has a place (more on that later), but video monetization has led to absurd content. I.e this 11 hour YouTube course on running an Amazon fulfillment business.
 
@@ -98,7 +98,7 @@ What video can do much better than text is quickly showcase the capabilities of 
 
 But if you combine engineers' tendency to ignore documentation with how easy video content goes out-of-date, the result is a graveyard of promising project demos with absolutely zero follow up. "OP[^2] never delivers" is painfully true for makers. Demo videos paired with good documentation solve this problem.
 
-For me, polished demos/video updates on social media platforms will be ads for my competitive advantage [—]({{< relref-emdash-url >}}) well-documented projects. There will be other content creators making cooler, more impressive projects than me. Hopefully, consistent "ads" will grow an audience entertained by my taste, but also interested in reproducing and re-mixing the projects I share.
+For me, polished demos/video updates on social media platforms will be ads for my competitive advantage [—]({{< ref-emdash-url >}}) well-documented projects. There will be other content creators making cooler, more impressive projects than me. Hopefully, consistent "ads" will grow an audience entertained by my taste, but also interested in reproducing and re-mixing the projects I share.
 
 ## A Digression on Freedom of Information
 
@@ -148,7 +148,7 @@ But communities are different.
 
 Communities are about the collective, not the creator. Communities are resilient. Even more so in the digital age. Ostracized communities still congregate in chat rooms and forums despite mainstream channels deplatforming them.
 
-It does not matter what big tech platform rises or falls [—]({{< relref-emdash-url >}}) people will still make things. If I'm a welcome member, I can follow makers wherever they decide to hangout.
+It does not matter what big tech platform rises or falls [—]({{< ref-emdash-url >}}) people will still make things. If I'm a welcome member, I can follow makers wherever they decide to hangout.
 
 Large followings restrict creator freedom too. Remember, it is the follower, not content creator, that has the power. Robert Rich, a trailblazer in the ambient, trance music scene with albums dating back to the 80s, described this exact phenomenon in 2008; before Instagram or the Facebook like existed.
 
@@ -323,7 +323,7 @@ If this was too long for you to read: my content will focus on hobbyist electron
 
 {{< donations >}}
 
-[Why are there footnotes?]({{< relref-jargon-url >}})
+[Why are there footnotes?]({{< ref-jargon-url >}})
 
 [^1]: printed circuit board assembly
 
