@@ -1,6 +1,6 @@
 ---
 date: '2026-08-29 02:38:17 +0000 UTC'
-lastMod: '2026-09- 02:38:17 +0000 UTC'
+lastmod: '2026-09-03 00:38:17 +0000 UTC'
 draft: false
 title: 'Dragon Ball Radar: Devlog 1 - Frankenstein'
 #
@@ -210,7 +210,7 @@ I don't have a lot of familiarity with I2S or sound circuits in general. Since *
 
 ### Display Mounting
 
-Given the unique shape of the Dragon Radar, I started with designing a 3D model. In the anime, the it took on slightly different looks.
+Given the unique shape of the Dragon Radar, I started with designing a 3D model. In the anime, it took on slightly different looks.
 
 {{< figure src="dragon-radars.webp" alt="dragon radars" loading="lazy" >}}
 
