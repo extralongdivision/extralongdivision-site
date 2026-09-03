@@ -244,7 +244,7 @@ The button to turn the device on and off is actually an assembly of a shaft and 
 
 {{< figure src="actuator-xray.webp" alt="transparent view of actuator button" loading="lazy" >}}
 
-This is where the beveled edges on the enclosure became a problem. Bear with me because this depedancy tree is a little convoluted. Because the switch is on the same PCB as the display, and switches are only available at certain hieghts, and the activation button must be on the same axis as the switch's actuator: the shaft for the activation button can't sit on the top of the enclosure like in the anime.
+This is where the beveled edges on the enclosure became a problem. Bear with me because this dependency tree is a little convoluted. Because the switch is on the same PCB as the display, and switches are only available at certain heights, and the activation button must be on the same axis as the switch's actuator: the shaft for the activation button can't sit on the top of the enclosure like in the anime.
 
 {{< figure src="switch-actuator.webp" alt="switch and actuator side view" loading="lazy" >}}
 
