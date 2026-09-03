@@ -45,7 +45,7 @@
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
 {{- end }}
 
-{{- $pages = (where site.RegularPages "Section" "projects") }}
+{{- $pages = (where site.RegularPages "Section" .Section) }}
 
 {{- $paginator := .Paginate $pages }}
 
