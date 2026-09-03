@@ -54,8 +54,6 @@ params:
       url: "https://matrix.to/#/@extralongdivision:matrix.org/"
     - name: "email"
       url: "mailto:helloworld@extralongdivision.com"
-    - name: "rss"
-      url: "rss/"
     - name: "kofi"
       url: "https://ko-fi.com/extralongdivision/"
     - name: "liberapay"
