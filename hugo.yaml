@@ -52,6 +52,8 @@ params:
       url: "https://codeberg.org/extralongdivision/"
     - name: "matrix"
       url: "https://matrix.to/#/@extralongdivision:matrix.org/"
+    - name: "medium"
+      url: "https://medium.com/@extralongdivision"
     - name: "email"
       url: "mailto:helloworld@extralongdivision.com"
     - name: "kofi"
