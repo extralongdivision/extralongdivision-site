@@ -1,5 +1,6 @@
 ---
 date: '2026-08-29 02:38:17 +0000 UTC'
+lastMod: '2026-09- 02:38:17 +0000 UTC'
 draft: false
 title: 'Dragon Ball Radar: Devlog 1 - Frankenstein'
 #
@@ -278,7 +279,7 @@ The speakers I'm using thankfully ship with adhesive foam. I cut a small nest ab
 
 ### Schematic Capture
 
-Adafruit did most of the work. "My" design is a mashup up of the Qualia board, MAX98357 breakout, and the charging circuit from the [Adafruit Feather ESP32-S3](https://learn.adafruit.com/assets/110822).
+Adafruit did most of the work. "My" design is a mashup up of the Qualia board, MAX98357 breakout, and the charging circuit from the {{< tracked-anchor href="https://learn.adafruit.com/assets/110822" text="Adafruit Feather ESP32-S3" >}}.
 
 {{< figure src="schematic.webp" alt="schematic" loading="lazy" >}}
 
@@ -379,7 +380,7 @@ Thankfully, the connector I chose was USB 2.0, not 3.0. With some bodge wires an
 
 Notice how the D+/D- wires are on the side of ESD[^15] diode closest to the connector. This ensures that an ESD event doesn't damage the ESP32.
 
-Also, the process to get CircuitPython on my board was slightly different than the Qualia. This is the tutorial I followed to do it: https://learn.adafruit.com/circuitpython-with-esp32-quick-start/installing-circuitpython.
+Also, the process to get CircuitPython on my board was slightly different than the Qualia. This is the tutorial I followed to do it: {{< tracked-anchor href="https://learn.adafruit.com/circuitpython-with-esp32-quick-start/installing-circuitpython" text="https://learn.adafruit.com/circuitpython-with-esp32-quick-start/installing-circuitpython" >}}.
 
 ### Battery Charging/Monitoring
 
