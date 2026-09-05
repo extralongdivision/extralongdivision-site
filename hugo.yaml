@@ -57,9 +57,11 @@ params:
     - name: "medium"
       url: "https://medium.com/@extralongdivision"
     - name: "ycombinator"
-      url: "https://news.ycombinator.com/user?id=extralongdivisi/"
+      url: "https://news.ycombinator.com/user?id=extralongdivisi"  # no trailing slash because it 404s
     - name: "matrix"
       url: "https://matrix.to/#/@extralongdivision:matrix.org/"
+    - name: "discord"
+      url: "https://discord.com/users/@extralongdivision2/"
     - name: "email"
       url: "mailto:helloworld@extralongdivision.com"
     - name: "kofi"
