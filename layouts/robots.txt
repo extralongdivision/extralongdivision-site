@@ -175,9 +175,4 @@ User-agent: YandexAdditional
 User-agent: YandexAdditionalBot
 User-agent: YiyanBot
 User-agent: YouBot
-User-agent: ZanistaBot
-{{- if hugo.IsProduction | or (eq site.Params.env "production") }}
-Disallow:
-{{- else }}
 Disallow: /
-{{- end }}
