@@ -54,6 +54,8 @@ params:
       url: "https://github.com/extralongdivision/"
     - name: "gitlab"
       url: "https://gitlab.com/extralongdivision/"
+    - name: "peertube"
+      url: "https://video.hardlimit.com/c/xld_shop/videos/"
     # - name: "youtube"
     #  url: "https://www.youtube.com/@extralongdivision/"
     - name: "mastodon"
