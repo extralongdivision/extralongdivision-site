@@ -6,7 +6,7 @@ title: 'Keep Your Skills Sharp'
 # EDIT THESE
 #
 author: 'Extra Long Division'
-tags: ['opinion', 'ai', 'articial intelligence']
+tags: ['opinion', 'ai', 'artificial inteligence']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
 canonicalURL: 'https://extralongdivision.com/articles/keep-your-skills-sharp/'
