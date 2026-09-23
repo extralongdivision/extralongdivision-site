@@ -1,6 +1,6 @@
 ---
 date: '2026-09-23 04:20:53 +0000 UTC'
-draft: true
+draft: false
 title: 'When to Use an LLM'
 #
 # EDIT THESE
@@ -45,15 +45,15 @@ UseHugoToc: false
 
 ## Introduction
 
-The following is a rule I'm placing on myself. I'm posting it publicly partly to keep myself accountable, but also because I suspect other people might benefit from following this rule. You, of course, are free to ignore my self-imposed restrictions or modify them however you like :). 
+The following is a rule I'm placing on myself. I'm posting it publicly partly to stay accountable, but also because I suspect other people might benefit from following this rule. You, of course, are free to ignore my self-imposed restrictions or modify them however you like :).
 
 ## "Oranges are Poisonous"
 
 You're immediate reaction should've been "no they're not." Because they aren't. I first heard this counter example many years ago from a foraging guide: "If someone told you an orange was poisonous, you'd say 'No, they're not!' That's how confident you should be before eating wild plants."
 
-I have forgotten nearly everything I learned from that wise guide. Somehow, the neural net of my mind summoned this idiom while reading a blog post that made it to the front page of {{< tracked-anchor href="https://news.ycombinator.com/item?id=49747070" text="Hacker News" >}} last week titled *{{< tracked-anchor href="https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/" text="How To Write With An LLM.">}}* A premise of the post is to not trust an LLM's[^1] output at face value. Which lead me to ask: would I believe an LLM if it told me an orange is poisonous? If amaranth is poisonous? Chickweed? Oleander?
+I have forgotten nearly everything I learned from that wise guide. Somehow, my mind summoned this idiom while reading a blog post that made it to the front page of {{< tracked-anchor href="https://news.ycombinator.com/item?id=49747070" text="Hacker News" >}} last week titled *{{< tracked-anchor href="https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/" text="How To Write With An LLM.">}}*[^1] A premise of the post is to not trust what AI[^2] says at face value. Which lead me to ask: would I believe a chatbot if it told me an orange is poisonous? If amaranth is poisonous? Chickweed? Oleander?
 
-One of those plants will actually kill you[^2]. If you're like me, you wouldn't know which one without research. Hopefully, you'd verify an LLM's response for something life or death like poison. But you may unwittingly accept a false and harmful response to an uninformed question. 
+One of those plants will actually kill you[^3]. If you're like me, you wouldn't know which one without research. Hopefully, you'd verify an LLM's response for something life or death like poison. But you may unwittingly accept a false and harmful response to an uninformed question.
 
 This led me to another thought: what *would* I believe without questioning? I will shorten extensive thought experiments about what is truth and simply say: I'd believe many things I don't have *some* expertise in.
 
@@ -69,6 +69,6 @@ This will make me a lot slower than people without this restriction. My handwrit
 
 [^1]: large language model
 
-[^2]: oleander is poisonous
+[^2]: artificial intelligence
 
-[^3]: artificial intelligence
+[^3]: oleander is poisonous
