@@ -57,7 +57,7 @@ One of those plants will actually kill you[^3]. If you're like me, you wouldn't 
 
 This led me to another thought: what *would* I believe without questioning? I will shorten extensive thought experiments about what is truth and simply say: I'd believe many things I don't have *some* expertise in.
 
-I've never used the foraging guide's advice in nature, but I will now with LLMs. [I've already stated my hesitation regarding AI use,]({{< ref "/articles/keep-your-skills-sharp/" >}}) but I'll add another rule. I will not use AI[^3] on a subject I can't form confident rebuttals for. In nature, the foraging guide's rule would prevent me from accidentally eating something poisonous; my corollary will prevent me from believing hallucinated misinformation.
+I've never used the foraging guide's advice in nature, but I will now with LLMs. [I've already stated my hesitation regarding AI use,]({{< ref "/articles/keep-your-skills-sharp/" >}}) but I'll add another rule. I will not use AI on a subject I can't form confident rebuttals for. In nature, the foraging guide's rule would prevent me from accidentally eating something poisonous; my corollary will prevent me from believing hallucinated misinformation.
 
 This will make me a lot slower than people without this restriction. My handwritten code will ship much slower than a vibe-coded app. AI-generated blog posts will publish much faster than mine. I don't care. The speed and ease of AI output does not outweigh the risk of believing an orange is poisonous.
 
