@@ -45,7 +45,7 @@ UseHugoToc: false
 
 ## Previously on Dragon Ball Z!
 
-In the last installment of this project, I proved the concept with a Frankenstein dragon radar. I've actually got something that looks like the real deal now. I'll make a separate build guide to reproduce the project. Keep reading to learn about the development since the last post.
+In the last installment of this project [link](link), I proved the concept with a Frankenstein dragon radar. I've actually got something that looks like the real deal now. I'll make a separate build guide to reproduce the project. Keep reading to learn about the development since the last post.
 
 ## Electrical Design
 
@@ -53,7 +53,7 @@ This section will be short. I just had two action items since the last update an
 
 [photo]
 
-Also, even if the mounting pins weren't soldered into place, the SMT[^4] pads would still adhere the connector to the board.
+I opted against it because, even if the mounting pins weren't soldered into place, the SMT[^4] pads would still adhere the connector to the board.
 
 The only electrical change I did was flip the battery connector polarity to match the ones I already have.
 
@@ -81,7 +81,7 @@ Now the whole radar is too large to palm in one hand *and* press the button at t
 
 [photo]
 
-A consequence of a thicker PCB is the USB-C connector not being flush with the back of the enclosure.
+A consequence of a thicker enclosure is the USB-C connector not being flush with the slot in the back. Said slot is not larger to accomodate a more recessed connector.
 
 [photo]
 
@@ -89,27 +89,27 @@ So it didn't matter if the PCB was 0.8 mm or 1.6 mm. Again, I did this mechanica
 
 ## Board Bring up
 
-Everything was plug and play with the updated PCB (version 1.1). I followed the same steps to put CircuitPython on the board and my code ran with no problem. I did see some differences between version 1 and version 1.1 though.
+Everything was plug and play with the updated PCB (version 1.1). I followed the same steps to put CircuitPython on the board [link](link) and my code ran with no problem. I did see some differences between version 1 and version 1.1 though.
 
-For V1, uploading new code only worked after a hard power reset. Not pressing the reset button on the board. This didn't happen with version 1.1. Also, the screen would glitch as if the signal timing was off whenever the heartbeat LED was on only for version version 1 of the PCB. Not an issue for version 1.1.
+For V1, uploading new code only worked after a hard power reset. Not pressing the reset button on the board. This didn't happen with version 1.1. Also, the screen would glitch as if the signal timing was off whenever the heartbeat LED was on only for version 1 of the PCB. Not an issue for version 1.1.
 
 I'm also seeing streaks of discoloring on the display that I wasn't seeing earlier.
 
 [photo]
 
-Not sure if this is a result of me driving the display poorly or some other problem. Either way, it's really negatively affecting the authenticity of the replica. 
+This is with version 1.1 of the board. Not sure if this is a result of me driving the display incorrectly or some other problem. Either way, it's negatively affecting the authenticity of the replica. 
 
 ## Cosmetics
 
 [photo]
 
-If you couldn't tell, I didn't do any post processing on the enclosure. I don't like the aesthetics, but I'm de-prioritizing that looks over other projects/potentially adding more features.
+If you couldn't tell, I didn't do any post processing on the enclosure. I don't like the aesthetics, but I'm de-prioritizing looks over other projects/potentially adding more features.
 
-One practical cosmetic issue, is screen brightness in direct sunlight. I believe I'm driving the backlight at 100% brightness, but it is still not the most readable outside. Using the project for an outdoor scavenger hunt would be very difficult. I might have to source a different screen.
+One practical cosmetic issue is screen brightness in direct sunlight. I believe I'm driving the backlight at 100% brightness, but it is still not the most readable outside. Using the project for an outdoor scavenger hunt would be very difficult. I might have to source a different screen.
 
-## Conclusion
+## Next Steps
 
-I consider the first iteration of this project done. The, still undocumented, repository is on Codeberg [](link). I promise to have a proper README there before posting the build tutorial here.
+I consider the first iteration of this project done. The, still undocumented, repository is on Codeberg [link](link). I promise to have a proper README there before posting the build tutorial here. I'm also going to start making short form video content with the radar to build an audience outside
 
 {{< eld-byline >}}
 
