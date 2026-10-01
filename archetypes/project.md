@@ -6,7 +6,7 @@ title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 # EDIT THESE
 #
 author: 'Extra Long Division'
-tags: ['project']
+tags: ['i-forgot-to-add-tags']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
 # canonicalURL: '{{ absURL .Site.Params.projects_path }}TODO/{{ .File.ContentBaseName }}/'
@@ -46,5 +46,7 @@ UseHugoToc: false
 {{< eld-byline >}}
 
 {{< donations >}}
+
+{{< series-itemization >}}
 
 [Why are there footnotes?]({{< ref-jargon-url >}})

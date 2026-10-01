@@ -7,6 +7,7 @@ title: 'Dragon Ball Radar: Devlog 2'
 #
 author: 'Extra Long Division'
 tags: ['dragon-ball-radar', 'esp32', 'circuitpython']
+series: ['Dragon Radar']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
 canonicalURL: 'https://extralongdivision.com/projects/dbz-radar/dbz-radar-devlog-2/'
@@ -25,7 +26,7 @@ hideSummary: false
 searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
-ShowPostNavLinks: true
+ShowPostNavLinks: false
 ShowWordCount: false
 ShowRssButtonInSectionTermList: true
 UseHugoToc: false

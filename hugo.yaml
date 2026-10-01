@@ -11,6 +11,10 @@ outputs:
     - RSS
     - JSON # necessary for search
 
+taxonomies:
+  tag: tags
+  series: series
+
 params:
   
   env: production
