@@ -1,6 +1,6 @@
 ---
-date: '2026-09-30 04:43:32 +0000 UTC'
-draft: true
+date: '2026-10-02 04:43:32 +0000 UTC'
+draft: false
 title: 'Dragon Ball Radar: Devlog 2'
 #
 # EDIT THESE
@@ -31,8 +31,8 @@ ShowWordCount: false
 ShowRssButtonInSectionTermList: true
 UseHugoToc: false
 cover:
-   image: "images/radar-in-hand.webp" # image path/url
-   alt: "Held Dragon Radar with a grassy background" # alt text
+   image: "images/visible-radar-in-hand.webp" # image path/url
+   alt: "Held Dragon Radar held in someone's hand" # alt text
 #    caption: "<text>" # display caption under cover
    relative: true # when using page bundles set this to true
 #    hidden: true # only hide on current single page
@@ -46,7 +46,7 @@ cover:
 
 ## Previously on Dragon Ball Z!
 
-In [the last installment of this project]({{< ref "/projects/dbz-radar/dbz-radar-devlog-1/" >}}), I proved the concept with a Frankenstein dragon radar. I've actually got something that looks like the real deal now. I'll make a separate build guide to reproduce the project. Keep reading to learn about the development since the last post.
+In [the last installment of this project]({{< ref "/projects/dbz-radar/dbz-radar-devlog-1/" >}}), I proved the concept with a Frankenstein dragon radar. Keep reading to learn about the development since the last post. I've actually got something that looks like the real deal now. I'll make a separate build guide to reproduce the project.
 
 ## Electrical Design
 
@@ -56,13 +56,13 @@ The only electrical change I did was flip the battery connector polarity to matc
 
 ## Mechanical Design
 
-Last post, I said I'd wait until new PCBs arrived before redesigning the enclosure. This cost me a couple days of messing with clearance just to fit the PCB inside the enclosure. Ultimately I had to make the diameter of the enclosure bigger to correct this. Ironic, since that's what I was trying to avoid during the original design phase described in the last post.
+Last post, I said I'd wait until new PCBs arrived before redesigning the enclosure. This cost me a couple days of messing with clearance just to mount the PCB. Ultimately I had to make the diameter of the enclosure bigger to correct this. Ironic, since that's what I was trying to avoid during the original design phase described in the last post.
 
 The button actuator was another issue that I would've recognized sooner if I tried to assemble the radar.
 
-[photo]
+{{< figure src="images/button-interference.webp" alt="a PCB button blocked by a 3D printed button" loading="lazy" >}}
 
-The radar's actuator interferes with the PCB's user button such that it's impossible to mount the PCB, even with the aforementioned clearance. Cutting a slot for the user button fixed the issue.
+The actuator interferes with the PCB's user button such that it's impossible to mount the PCB, even with the aforementioned clearance. Cutting a slot for the user button fixed the issue.
 
 {{< figure src="images/actuator-slot.webp" alt="PCB button fitting into a 3D printed button slot" loading="lazy" >}}
 
@@ -84,7 +84,7 @@ So it didn't matter if the PCB was 0.8 mm or 1.6 mm. Again, I did this mechanica
 
 Everything was plug and play with the updated PCB (version 1.1). I followed the {{< tracked-anchor href="https://learn.adafruit.com/circuitpython-with-esp32-quick-start/installing-circuitpython" text="same steps to put CircuitPython on the board" >}} and my code ran with no problem. I did see some differences between PCB version 1 and version 1.1 though.
 
-For V1, uploading new code only worked after a hard power reset. Not pressing the reset button on the board. This didn't happen with version 1.1. Also, the screen would glitch as if the signal timing was off whenever the heartbeat LED was on only for version 1 of the PCB. Not an issue for version 1.1. I haven't reproduced this on camera yet.
+For V1, uploading new code only worked after a hard power reset. Not pressing the reset button on the board. This didn't happen with version 1.1. Also, the screen would glitch as if the signal timing was off whenever the heartbeat LED was on. Again, only for version 1 of the PCB. Not an issue for version 1.1. I haven't reproduced this on camera yet.
 
 I'm also seeing streaks of discoloring on the display that I wasn't seeing earlier. It doesn't show up in photos well, but soft peach/orange vertical blotches overlay whatever's being shown. It's especially visible when the screen powers off. Not sure if this is a result of me driving the display incorrectly or some other problem. Either way, it's negatively affecting the authenticity of the replica.
 
@@ -92,11 +92,15 @@ I'm also seeing streaks of discoloring on the display that I wasn't seeing earli
 
 If the cover photo didn't give it away, I didn't do any post processing on the enclosure. I don't like the aesthetics, but I'm de-prioritizing looks over other projects/potentially adding more features.
 
-One practical cosmetic issue is screen brightness in direct sunlight (something else that's obvious from the cover photo). I believe I'm driving the backlight at 100% brightness, but it is still not the most readable outside. Using the project for an outdoor scavenger hunt would be very difficult. I might have to source a different screen.
+One practical cosmetic issue is screen brightness in direct sunlight. Here's a side-by-side of the radar in the shade vs the sun.
+
+{{< figure src="images/sun-vs-shade.webp" alt="Dragon radar in sunlight and shade" caption="Left: dragon radar in shade. Right: dragon radar in direct sunlight" loading="lazy">}}
+
+The two images accurately represent the difference between shaded and direct light to the naked eye. For the latter, the display acts more like a mirror than a screen. I believe I'm driving the backlight at 100% brightness, but it is still not the most readable in the sun. Using the project for an outdoor scavenger hunt would be very difficult. I might have to source a different screen for future iterations.
 
 ## Next Steps
 
-I consider the first iteration of this project done. The, still undocumented, repository is on {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar" text="Codeberg." >}} I promise to have a proper README there before posting the build tutorial here. Be on the lookout for some video content with the radar too.
+I consider the first phase of this project done. The design files are available on the, still undocumented, {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar" text="project's repository." >}} I promise to have a proper README there once I post the build tutorial here. Be on the lookout for some video content with the radar too.
 
 {{< eld-byline >}}
 
