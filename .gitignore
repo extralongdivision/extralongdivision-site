@@ -1,4 +1,11 @@
 #
+# MMiscellaneous
+#
+
+temp/
+tmp/
+
+#
 # Hugo
 #
 
