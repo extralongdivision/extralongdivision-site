@@ -1,6 +1,6 @@
 ---
 date: '2026-10-02 04:43:32 +0000 UTC'
-draft: true
+draft: false
 title: 'Dragon Ball Radar: Devlog 2'
 #
 # EDIT THESE
@@ -53,6 +53,8 @@ In [the last installment of this project]({{< ref "/projects/dbz-radar/dbz-radar
 This section will be short. I had two action items since the last update and I only did one of them.  Originally [I wanted to make the board 0.8 mm]({{< ref "/projects/dbz-radar/dbz-radar-devlog-1/#usb-c" >}})[^1] instead of 1.6 mm. I decided to keep the PCB[^2] the same size since that'd lower the USB-C[^3] connector coming out the back of the enclosure (*ominous noises*). Also, even if the mounting pins weren't soldered into place, the SMT[^4] pads would still adhere the connector to the board.
 
 The only electrical change I did was flip the battery connector polarity to match the ones I already have.
+
+{{< figure src="images/j1-v1-vs-v1_1.webp" alt="battery connector in version 1 and version 1.1 PCB" caption="Left: Version 1 battery connector with reversed polarity. Right: Version 1.1 battery connector with correct polarity." loading="lazy" >}}
 
 ## Mechanical Design
 
