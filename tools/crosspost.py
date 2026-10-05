@@ -41,6 +41,30 @@ class URLBuilder:
             "thingiverse",
         )
 
+    def inject_syndication_utms(self, line: str, utm_content: str) -> str:
+        # if line has my domain, and has not utm's, add this classes
+        if self._url not in line:
+            return line
+        # line contains my domain name
+
+        # check if url has utms
+        url = re.search(r"(?<=\().*?(?=\))", line).group()
+        if self._domain not in url:
+            return line  # this isn't a link to my domain
+
+        if "?" in url and "utm" in url:
+            return line  # already has utm parameters
+
+        # check if a file not a url
+        filename = url.split("/")[-1]
+        if len(filename.split(".")) > 1:  # url is for a file
+            if ".html" not in filename or ".xml" not in filename:
+                return line  # a media file, ignore
+        # an ugly url or rss file, still needs utm
+
+        new_url = self.syndication_url(url=url, utm_content=utm_content)
+        return line.replace(url, new_url)
+
     def _query(self, source: str, medium: str, campaign: str = "", uid: str = "", content: str = "", is_paid: bool = False) -> str:
         if "social" in medium.lower():  # posting to social medium
             if source not in self._socials:
@@ -59,15 +83,16 @@ class URLBuilder:
             q += f"&utm_content={content}"
         return q
 
-    def syndication_url(self, utm_content: str) -> str:
+    def syndication_url(self, utm_content: str, url: str = "") -> str:
         if self._source in self._socials:
-            self.social_syndication_url(utm_content=utm_content)
+            return self.social_syndication_url(url=url, utm_content=utm_content)
         else:
             raise NotImplementedError(f"No syndication url implemented for {self._source}")
         return ""
 
-    def social_syndication_url(self, utm_content: str) -> str:
-        return self._url + self._query(source=self._source, medium="organic_social", campaign="syndication", uid="1", content=utm_content, is_paid=False)
+    def social_syndication_url(self, utm_content: str, url: str = "") -> str:
+        url = url if url else self._url
+        return url + self._query(source=self._source, medium="organic_social", campaign="syndication", uid="1", content=utm_content, is_paid=False)
 
     def backlink_url(self) -> str:
         raise NotImplementedError
@@ -109,7 +134,7 @@ class Crosspost:
                 for line in fin.readlines():
                     line = self._replace_domain(line)
                     line = self._force_https(line)
-                    line = self._url_builder.inject_syndication_utms(line, utm_content=self._slug)
+                    line = self._url_builder.inject_syndication_utms(line, self._slug)
                     # TODO create PNGs of webp
                     # TODO create replace webp with PNG
                     # TODO UTM parameters
@@ -136,11 +161,10 @@ class Crosspost:
                     continue
 
                 canonical_url = re.search("(?<=href=\").*?(?=\")", line).group()
-                slug = canonical_url.group().split("/")[-2]
+                slug = canonical_url.split("/")[-2]
                 if not slug:
                     raise ValueError(f"Invalid value for slug: {slug}")
                 return slug
-
 
     def _find_port(self) -> str:
         port = ""
