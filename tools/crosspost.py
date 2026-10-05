@@ -97,7 +97,6 @@ class URLBuilder:
         raise NotImplementedError
 
 
-
 class Crosspost:
     """A post that's easier to syndicate."""
 
