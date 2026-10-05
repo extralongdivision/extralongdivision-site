@@ -47,7 +47,7 @@ params:
     imageHeight: 128 # custom size
     buttons:
     - name: Dragon Ball Radar
-      url: projects/dbz-radar/dbz-radar-devlog-1/  # FIXME WET canonicalURL
+      url: projects/dbz-radar/dbz-radar-devlog-2/  # FIXME WET canonicalURL
     - name: Subscribe via RSS
       url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET archive RSS parameter
 
