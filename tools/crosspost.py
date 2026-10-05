@@ -88,7 +88,6 @@ class URLBuilder:
             return self.social_syndication_url(url=url, utm_content=utm_content)
         else:
             raise NotImplementedError(f"No syndication url implemented for {self._source}")
-        return ""
 
     def social_syndication_url(self, utm_content: str, url: str = "") -> str:
         url = url if url else self._url
@@ -102,8 +101,16 @@ class URLBuilder:
 class Crosspost:
     """A post that's easier to syndicate."""
 
-    def __init__(self, dst: str):
-        self._url_builder = URLBuilder(source=dst)
+    def __init__(self):
+        parser = argparse.ArgumentParser(
+            prog="Crosspost Preprocessor",
+            description="Take a canonical html post and transform it to something easier to syndicate.",
+        )
+        parser.add_argument("-i", "--input-filepath")
+        parser.add_argument("-t", "--target-site")
+        args = parser.parse_args()
+
+        self._url_builder = URLBuilder(source=args.target_site)
 
         self._build_dir = "temp" + os.sep
         self._init_build_dir()
@@ -111,13 +118,7 @@ class Crosspost:
         self._local_domain = "localhost"
         self._canonical_domain = "extralongdivision.com/"
 
-        parser = argparse.ArgumentParser(
-            prog="Crosspost Preprocessor",
-            description="Take a canonical html post and transform it to something easier to syndicate.",
-        )
-        parser.add_argument("-i", "--input-filepath")
-        # self._input_filepath = parser.parse_args().input_filepath FIXME
-        self._input_filepath = "../public/projects/dbz-radar/dbz-radar-devlog-2/index.html"
+        self._input_filepath = args.input_filepath
         self._slug = self._get_slug()
         self._output_filepath = self._md_filepath(self._input_filepath)
 
@@ -137,7 +138,6 @@ class Crosspost:
                     line = self._url_builder.inject_syndication_utms(line, self._slug)
                     # TODO create PNGs of webp
                     # TODO create replace webp with PNG
-                    # TODO UTM parameters
                     fout.write(line)
 
     @staticmethod
@@ -193,5 +193,5 @@ class Crosspost:
 
 
 if __name__ == "__main__":
-    crosspost = Crosspost(dst="twitter")
+    crosspost = Crosspost()
     crosspost.iter_md()
