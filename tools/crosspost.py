@@ -156,7 +156,6 @@ class Crosspost:
                     source_output_filepath = output_dirs + filename
                     with open(source_output_filepath, "a") as fout:
                         fout.write(line)
-                # TODO create PNGs of webp
                 # TODO create replace webp with PNG
 
     @staticmethod
