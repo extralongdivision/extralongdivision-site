@@ -8,38 +8,53 @@ from markdownify import markdownify as md
 
 
 class URLBuilder:
+    socials = (  # it's social if i'm posting to my own account
+        "twitter",
+        "bluesky",
+        "mastodon",
+        "threads"
+        "instagram",
+        "facebook",
+        "youtube",
+        "peertube",
+        "tiktok",
+        "reddit",
+        "lemmy",
+        "hackaday",
+        "hackster",
+        "adafruit-playground",
+        "dev",
+        "medium",
+        "substack",
+        "instructables",
+        "hackernews",
+        "makerio",
+        "makerpro",
+        "codeberg",
+        "gitlab",
+        "github",
+        "grabcad",
+        "thingiverse",
+    )
+    blogs = (
+        "hackaday",
+        "hackster",
+        "adafruit-playground",
+        "dev",
+        "medium",
+        "substack",
+        "instructables",
+        "hackernews",
+        "makerio",
+        "makerpro",
+    )
+
     def __init__(self, source: str):
         self._domain = "extralongdivision.com"
         self._url = self._domain + "/"
         self._source = source
-        self._socials = (  # it's social if i'm posting to my own account
-            "twitter",
-            "bluesky",
-            "mastodon",
-            "threads"
-            "instagram",
-            "facebook",
-            "youtube",
-            "peertube",
-            "tiktok",
-            "reddit",
-            "lemmy",
-            "hackaday",
-            "hackster",
-            "adafruit_playground",
-            "dev",
-            "medium",
-            "substack",
-            "instructables",
-            "hacker_news",
-            "makerio"
-            "makerpro",
-            "codeberg",
-            "gitlab",
-            "github",
-            "grabcad",
-            "thingiverse",
-        )
+        if not set(URLBuilder.blogs).issubset(URLBuilder.socials):
+            raise ValueError("Blog platforms is not a subset of all social platforms")
 
     def inject_syndication_utms(self, line: str, utm_content: str) -> str:
         # if line has my domain, and has not utm's, add this classes
@@ -67,7 +82,7 @@ class URLBuilder:
 
     def _query(self, source: str, medium: str, campaign: str = "", uid: str = "", content: str = "", is_paid: bool = False) -> str:
         if "social" in medium.lower():  # posting to social medium
-            if source not in self._socials:
+            if source not in URLBuilder.socials:
                 raise ValueError(f"{source} is not a valid social medium.")
 
             if is_paid:
@@ -84,7 +99,7 @@ class URLBuilder:
         return q
 
     def syndication_url(self, utm_content: str, url: str = "") -> str:
-        if self._source in self._socials:
+        if self._source in URLBuilder.socials:
             return self.social_syndication_url(url=url, utm_content=utm_content)
         else:
             raise NotImplementedError(f"No syndication url implemented for {self._source}")
@@ -106,10 +121,7 @@ class Crosspost:
             description="Take a canonical html post and transform it to something easier to syndicate.",
         )
         parser.add_argument("-i", "--input-filepath")
-        parser.add_argument("-t", "--target-site")
         args = parser.parse_args()
-
-        self._url_builder = URLBuilder(source=args.target_site)
 
         self._build_dir = "temp" + os.sep
         self._init_build_dir()
@@ -129,15 +141,23 @@ class Crosspost:
         """replace all instances of localhost with canonical website."""
         tmp = self._output_filepath + ".tmp"
         shutil.copyfile(self._output_filepath, tmp)
-        with open(self._output_filepath, "w") as fout:
-            with open(tmp) as fin:
-                for line in fin.readlines():
-                    line = self._replace_domain(line)
-                    line = self._force_https(line)
-                    line = self._url_builder.inject_syndication_utms(line, self._slug)
-                    # TODO create PNGs of webp
-                    # TODO create replace webp with PNG
-                    fout.write(line)
+
+        output_basename = self._output_filepath.split(os.sep)[-1]
+        output_dirs = os.sep.join(self._output_filepath.split(os.sep)[:1]) + "/"
+        with open(tmp) as fin:
+            for line in fin.readlines():
+                line = self._replace_domain(line)
+                line = self._force_https(line)
+                no_utm_line = line
+                for source in URLBuilder.blogs:
+                    url_builder = URLBuilder(source=source)
+                    line = url_builder.inject_syndication_utms(no_utm_line, self._slug)
+                    filename = "".join([source, "_", output_basename])
+                    source_output_filepath = output_dirs + filename
+                    with open(source_output_filepath, "a") as fout:
+                        fout.write(line)
+                # TODO create PNGs of webp
+                # TODO create replace webp with PNG
 
     @staticmethod
     def _force_https(line: str) -> str:
