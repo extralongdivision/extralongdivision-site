@@ -7,7 +7,8 @@ title: 'Dragon Ball Radar: Devlog 1 - Frankenstein'
 # EDIT THESE
 #
 author: 'Extra Long Division'
-tags: ['project', 'dragon-ball-radar', 'esp32', 'circuitpython']
+tags: ['dragon-ball-radar', 'esp32', 'circuitpython']
+series: ['Dragon Radar']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
 canonicalURL: 'https://extralongdivision.com/projects/dbz-radar/dbz-radar-devlog-1/'
@@ -26,7 +27,7 @@ hideSummary: false
 searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
-ShowPostNavLinks: true
+ShowPostNavLinks: false
 ShowWordCount: false
 ShowRssButtonInSectionTermList: false
 UseHugoToc: false
@@ -470,6 +471,8 @@ The repository for this project, though completely undocumented as of writing th
 {{< eld-byline >}}
 
 {{< donations >}}
+
+{{< series-itemization >}}
 
 [Why are there footnotes?]({{< ref-jargon-url >}})
 

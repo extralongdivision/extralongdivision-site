@@ -1,0 +1,270 @@
+"""Take a canonical post and make it easier to syndicate."""
+import argparse
+import os
+import re
+import shutil
+
+from markdown2 import markdown_path
+from markdownify import markdownify as md
+from photo_converter import PhotoConverter
+
+
+def get_url(string: str) -> str:
+    """Extracts url, returns input otherwise"""
+    match = re.search(r"(?<=\().*?(?=\))", string)
+    if match is None:
+        return string
+    return match.group()
+
+def is_file(string: str) -> bool:
+    filename = string.split(os.sep)[-1]
+    return len(filename.split(".")) > 1
+
+
+class URLBuilder:
+    socials = (  # it's social if i'm posting to my own account
+        "twitter",
+        "bluesky",
+        "mastodon",
+        "threads"
+        "instagram",
+        "facebook",
+        "youtube",
+        "peertube",
+        "tiktok",
+        "reddit",
+        "lemmy",
+        "hackaday",
+        "hackster",
+        "adafruit-playground",
+        "dev",
+        "medium",
+        "substack",
+        "instructables",
+        "hackernews",
+        "makerio",
+        "makerpro",
+        "codeberg",
+        "gitlab",
+        "github",
+        "grabcad",
+        "thingiverse",
+    )
+    blogs = (
+        "hackaday",
+        "hackster",
+        "adafruit-playground",
+        "dev",
+        "medium",
+        "substack",
+        "instructables",
+        "hackernews",
+        "makerio",
+        "makerpro",
+    )
+
+    def __init__(self, source: str):
+        self._domain = "extralongdivision.com"
+        self._url = self._domain + "/"
+        self._source = source
+        if not set(URLBuilder.blogs).issubset(URLBuilder.socials):
+            raise ValueError("Blog platforms is not a subset of all social platforms")
+
+    def inject_syndication_utms(self, line: str, utm_content: str) -> str:
+        # if line has my domain, and has not utm's, add this classes
+        if self._url not in line:
+            return line
+        # line contains my domain name
+
+        # check if url has utms
+        url = get_url(line)
+        if self._domain not in url:
+            return line  # this isn't a link to my domain
+
+        if "?" in url and "utm" in url:
+            return line  # already has utm parameters
+
+        # check if a file not a url
+        if is_file(url):  # url is for a file
+            filename = url.split(os.sep)[-1]
+            if ".html" not in filename or ".xml" not in filename:
+                return line  # a media file, ignore
+        # an ugly url or rss file, still needs utm
+
+        new_url = self.syndication_url(url=url, utm_content=utm_content)
+        return line.replace(url, new_url)
+
+    def _query(self, source: str, medium: str, campaign: str = "", uid: str = "", content: str = "", is_paid: bool = False) -> str:
+        if "social" in medium.lower():  # posting to social medium
+            if source not in URLBuilder.socials:
+                raise ValueError(f"{source} is not a valid social medium.")
+
+            if is_paid:
+                medium = "paid_social"
+            else:
+                medium = "organic_social"
+        q = f"?utm_source={source}&utm_medium={medium}"
+        if campaign:
+            q += f"&utm_campaign={campaign}"
+        if uid:
+            q += f"&utm_id={uid}"
+        if content:
+            q += f"&utm_content={content}"
+        return q
+
+    def syndication_url(self, utm_content: str, url: str = "") -> str:
+        if self._source in URLBuilder.socials:
+            return self.social_syndication_url(url=url, utm_content=utm_content)
+        else:
+            raise NotImplementedError(f"No syndication url implemented for {self._source}")
+
+    def social_syndication_url(self, utm_content: str, url: str = "") -> str:
+        url = url if url else self._url
+        return url + self._query(source=self._source, medium="organic_social", campaign="syndication", uid="1", content=utm_content, is_paid=False)
+
+    def backlink_url(self) -> str:
+        raise NotImplementedError
+
+
+class Crosspost:
+    """A post that's easier to syndicate."""
+
+    def __init__(self):
+        parser = argparse.ArgumentParser(
+            prog="Crosspost Preprocessor",
+            description="Take a canonical html post and transform it to something easier to syndicate.",
+        )
+        parser.add_argument("-i", "--input-filepath")
+        args = parser.parse_args()
+
+        self._build_dir = "temp" + os.sep
+        self._init_build_dir()
+
+        self._local_domain = "localhost"
+        self._canonical_domain = "extralongdivision.com/"
+
+        self._input_filepath = args.input_filepath
+        self._slug = self._get_slug()
+        self._output_filepath = self._md_filepath(self._input_filepath)
+
+        self._to_md()
+
+        self._port = self._find_port()
+
+    def generate(self) -> None:
+        self.iter_md()
+        for md_relpath in os.listdir(self._build_dir):
+            md_relpath = self._build_dir + md_relpath
+            md_ext = "md"
+            if not md_relpath.endswith(md_ext):
+                continue
+
+            html_relpath = md_relpath.replace(md_ext, "html")
+            with open(html_relpath, "w") as fout:
+                html = markdown_path(md_relpath)
+                fout.write(html)
+
+    def iter_md(self) -> None:
+        """Make changes to markdown line by line"""
+        tmp = self._output_filepath + ".tmp"
+        shutil.copyfile(self._output_filepath, tmp)
+
+        output_basename = self._output_filepath.split(os.sep)[-1]
+        output_dirs = os.sep.join(self._output_filepath.split(os.sep)[:1]) + "/"
+        with open(tmp) as fin:
+            for line in fin.readlines():
+                line = self._replace_domain(line)
+                line = self._force_https(line)
+                line = self._replace_img_url(line)
+                no_utm_line = line
+                for source in URLBuilder.blogs:
+                    url_builder = URLBuilder(source=source)
+                    line = url_builder.inject_syndication_utms(no_utm_line, self._slug)
+                    filename = "".join([source, "_", output_basename])
+                    source_output_filepath = output_dirs + filename
+                    with open(source_output_filepath, "a") as fout:
+                        fout.write(line)
+
+    @staticmethod
+    def _force_https(line: str) -> str:
+        return line.replace("](http:", "](https:")
+
+    def _replace_domain(self, line: str) -> str:
+        key = f"{self._local_domain}:{self._port}/"
+        return line.replace(key, self._canonical_domain)
+
+    def _init_build_dir(self) -> None:
+        shutil.rmtree(self._build_dir)
+        try:
+            os.makedirs(self._build_dir)
+        except FileExistsError:
+            pass
+
+    def _get_slug(self) -> str:
+        with open(self._input_filepath) as fin:
+            for line in fin.readlines():
+                if "rel=\"canonical\"" not in line:
+                    continue
+
+                canonical_url = re.search("(?<=href=\").*?(?=\")", line).group()
+                slug = canonical_url.split("/")[-2]
+                if not slug:
+                    raise ValueError(f"Invalid value for slug: {slug}")
+                return slug
+
+    def _find_port(self) -> str:
+        port = ""
+        with open(self._output_filepath) as fin:
+            for line in fin.readlines():
+                # "\\d+" is the port number
+                url = re.search(f"{self._local_domain}:\\d+", line)
+                if url is None:
+                    continue
+                _, port = url.group().split(":")
+                break
+        return port
+
+    def _replace_img_url(self, line: str) -> str:
+        url = get_url(line)
+        new_line = line
+        if url != line and url.endswith("webp"):
+            img_relpath_after_root = url.split(self._canonical_domain)[-1]
+            root_dir = ""
+            found_root = False
+            for d in self._input_filepath.split(os.sep):
+                if d not in img_relpath_after_root:
+                    root_dir += d + os.sep
+                    continue
+                found_root = True
+                break
+            if not found_root:
+                root_dir = "../public/"
+
+            old_ext = "webp"
+            new_ext = "png"
+            img_relpath_from_script = root_dir + img_relpath_after_root
+            new_img_relpath_from_script = img_relpath_from_script.replace(old_ext, new_ext)
+            relpath_to_html = os.path.commonpath([self._input_filepath, img_relpath_from_script]) + os.sep
+            img_relpath_from_html = new_img_relpath_from_script.replace(relpath_to_html, "")
+            new_img_relpath_from_html = img_relpath_from_html.replace(old_ext, new_ext)
+            new_line = line.replace(url, new_img_relpath_from_html)
+            PhotoConverter.convert(img_relpath_from_script, self._build_dir + img_relpath_from_html)
+        return new_line
+
+    def _md_filepath(self, html_filepath: str) -> str:
+        basename = html_filepath.split(os.sep)[-1]
+        basename = basename.replace(".html", ".md")
+        return self._build_dir + basename
+
+    def _to_md(self) -> None:
+        with open(self._output_filepath, "w") as fout:
+            with open(self._input_filepath) as fin:
+                html_string = fin.readlines()
+                html_string = "".join(html_string)
+                md_string = md(html_string)
+                fout.write(md_string)
+
+
+if __name__ == "__main__":
+    crosspost = Crosspost()
+    crosspost.generate()

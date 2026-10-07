@@ -32,6 +32,10 @@
 {{- if ge $limit 1 }}
 {{- $pages = $pages | first $limit }}
 {{- end }}
+{{- if (len $pages) }}{{/* needed for projects list */}}
+{{- else}}
+  {{- $pages = (partial "func-flat-section-pages.html" .) }}
+{{- end }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xml:base="{{ absURL "" }}">
   <channel>

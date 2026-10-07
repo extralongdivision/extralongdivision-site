@@ -1,3 +1,4 @@
+{{/* Carbon copy of /themes/PaperMod/layouts/list.xml but to flatten sections */}}
 {{- define "main" }}
 
 {{- if (and site.Params.profileMode.enabled .IsHome) }}
@@ -45,7 +46,8 @@
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
 {{- end }}
 
-{{- $pages = (where site.RegularPages "Section" .Section) }}
+{{/* This makes the section flat */}}
+{{- $pages = (partial "func-flat-section-pages.html" .) }}
 
 {{- $paginator := .Paginate $pages }}
 
