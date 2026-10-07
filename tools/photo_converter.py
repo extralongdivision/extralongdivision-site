@@ -1,6 +1,7 @@
 """Class and CLI tools to convert images."""
 import argparse
 import os
+import pathlib
 
 from PIL import Image, UnidentifiedImageError
 
@@ -11,6 +12,7 @@ class PhotoConverter:
         fname, _ = src.split(os.sep)[-1].split(".")
         img = Image.open(src)
         dst_ext = dst.split(".")[-1]
+        pathlib.Path(dst).parent.mkdir(parents=True, exist_ok=True)
         img.save(dst, dst_ext)
 
 

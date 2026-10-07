@@ -5,6 +5,19 @@ import re
 import shutil
 
 from markdownify import markdownify as md
+from photo_converter import PhotoConverter
+
+
+def get_url(string: str) -> str:
+    """Extracts url, returns input otherwise"""
+    match = re.search(r"(?<=\().*?(?=\))", string)
+    if match is None:
+        return string
+    return match.group()
+
+def is_file(string: str) -> bool:
+    filename = string.split(os.sep)[-1]
+    return len(filename.split(".")) > 1
 
 
 class URLBuilder:
@@ -63,7 +76,7 @@ class URLBuilder:
         # line contains my domain name
 
         # check if url has utms
-        url = re.search(r"(?<=\().*?(?=\))", line).group()
+        url = get_url(line)
         if self._domain not in url:
             return line  # this isn't a link to my domain
 
@@ -71,8 +84,8 @@ class URLBuilder:
             return line  # already has utm parameters
 
         # check if a file not a url
-        filename = url.split("/")[-1]
-        if len(filename.split(".")) > 1:  # url is for a file
+        if is_file(url):  # url is for a file
+            filename = url.split(os.sep)[-1]
             if ".html" not in filename or ".xml" not in filename:
                 return line  # a media file, ignore
         # an ugly url or rss file, still needs utm
@@ -148,6 +161,7 @@ class Crosspost:
             for line in fin.readlines():
                 line = self._replace_domain(line)
                 line = self._force_https(line)
+                line = self._replace_img_url(line)
                 no_utm_line = line
                 for source in URLBuilder.blogs:
                     url_builder = URLBuilder(source=source)
@@ -156,7 +170,6 @@ class Crosspost:
                     source_output_filepath = output_dirs + filename
                     with open(source_output_filepath, "a") as fout:
                         fout.write(line)
-                # TODO create replace webp with PNG
 
     @staticmethod
     def _force_https(line: str) -> str:
@@ -195,6 +208,33 @@ class Crosspost:
                 _, port = url.group().split(":")
                 break
         return port
+
+    def _replace_img_url(self, line: str) -> str:
+        url = get_url(line)
+        new_line = line
+        if url != line and url.endswith("webp"):
+            img_relpath_after_root = url.split(self._canonical_domain)[-1]
+            root_dir = ""
+            found_root = False
+            for d in self._input_filepath.split(os.sep):
+                if d not in img_relpath_after_root:
+                    root_dir += d + os.sep
+                    continue
+                found_root = True
+                break
+            if not found_root:
+                root_dir = "../public/"
+
+            old_ext = "webp"
+            new_ext = "png"
+            img_relpath_from_script = root_dir + img_relpath_after_root
+            new_img_relpath_from_script = img_relpath_from_script.replace(old_ext, new_ext)
+            relpath_to_html = os.path.commonpath([self._input_filepath, img_relpath_from_script]) + os.sep
+            img_relpath_from_html = new_img_relpath_from_script.replace(relpath_to_html, "")
+            new_img_relpath_from_html = img_relpath_from_html.replace(old_ext, new_ext)
+            new_line = line.replace(url, new_img_relpath_from_html)
+            PhotoConverter.convert(img_relpath_from_script, self._build_dir + img_relpath_from_html)
+        return new_line
 
     def _md_filepath(self, html_filepath: str) -> str:
         basename = html_filepath.split(os.sep)[-1]
