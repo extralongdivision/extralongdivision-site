@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 
+from markdown2 import markdown_path
 from markdownify import markdownify as md
 from photo_converter import PhotoConverter
 
@@ -150,8 +151,21 @@ class Crosspost:
 
         self._port = self._find_port()
 
+    def generate(self) -> None:
+        self.iter_md()
+        for md_relpath in os.listdir(self._build_dir):
+            md_relpath = self._build_dir + md_relpath
+            md_ext = "md"
+            if not md_relpath.endswith(md_ext):
+                continue
+
+            html_relpath = md_relpath.replace(md_ext, "html")
+            with open(html_relpath, "w") as fout:
+                html = markdown_path(md_relpath)
+                fout.write(html)
+
     def iter_md(self) -> None:
-        """replace all instances of localhost with canonical website."""
+        """Make changes to markdown line by line"""
         tmp = self._output_filepath + ".tmp"
         shutil.copyfile(self._output_filepath, tmp)
 
@@ -180,6 +194,7 @@ class Crosspost:
         return line.replace(key, self._canonical_domain)
 
     def _init_build_dir(self) -> None:
+        shutil.rmtree(self._build_dir)
         try:
             os.makedirs(self._build_dir)
         except FileExistsError:
@@ -252,4 +267,4 @@ class Crosspost:
 
 if __name__ == "__main__":
     crosspost = Crosspost()
-    crosspost.iter_md()
+    crosspost.generate()
