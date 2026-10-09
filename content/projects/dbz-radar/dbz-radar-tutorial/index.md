@@ -120,7 +120,7 @@ Below are step-by-step instructions to build the project. Cross-reference the nu
 
    - {{< figure src="images/enclosure-front-m2-inserts-annotated.webp" alt="3D printed part next to a bag of M2 threaded inserts" loading="lazy" >}}
    
-   - Use a soldering iron to install six (6) M2 heat set inserts in front enclosure.
+   - Use a soldering iron to install six (6) M2 heat set inserts in the enclosure front.
 
 1. The enclosure front should look something like this.
 
@@ -152,7 +152,7 @@ Below are step-by-step instructions to build the project. Cross-reference the nu
 
    - Install the button cap onto the partially extruded M2 set screw
 
-1. The front enclosure should look somthing like this now
+1. The enclosure front should look somthing like this now
 
    - {{< figure src="images/button-cap-highlight.webp" alt="Button cap fastened onto the button shaft." loading="lazy" >}}
 
