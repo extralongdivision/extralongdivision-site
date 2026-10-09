@@ -1,6 +1,6 @@
 ---
-date: '2026-10-06 06:09:05 +0000 UTC'
-draft: true
+date: '2026-10-12 15:00:00 +0000 UTC'
+draft: false
 title: 'How To Make a Dragon Ball Radar'
 #
 # EDIT THESE
