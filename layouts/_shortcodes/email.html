@@ -1,0 +1,5 @@
+{{-  range site.Params.SocialIcons }}
+    {{- if ( compare.Eq (index . "name") "email") }}
+        {{ index . "url"}}
+    {{- end }}
+{{- end }}

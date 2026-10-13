@@ -130,6 +130,7 @@ params:
   archive_rss_url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET RSS button
   articles_rss_url: "https://cloud.umami.is/q/duDxrD0pM"
   projects_rss_url: "https://cloud.umami.is/q/4vO3PdsPN"
+  links_url: "https://extralongdivision.com/id/"
 
 menu:
   main:
