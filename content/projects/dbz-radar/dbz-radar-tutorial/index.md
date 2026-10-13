@@ -1,6 +1,6 @@
 ---
-date: '2026-10-06 15:00:00 +0000 UTC'
-draft: true
+date: '2026-10-12 17:30:00 +0000 UTC'
+draft: false
 title: 'How To Make a Dragon Ball Radar'
 #
 # EDIT THESE
@@ -46,7 +46,7 @@ cover:
 
 ## Introduction
 
-Keep reading if you want to build your own Dragon Radar from the internationally acclaimed *{{< tracked-anchor href="https://www.viz.com/shonenjump/chapters/dragon-ball" text="Dragon Ball" >}}* franchise. If you want to learn more about how I designed it, read [the latest developer log.]({{< ref "/projects/dbz-radar/dbz-radar-devlog-2/" >}})
+Keep reading if you want to build your own Dragon Radar from the internationally acclaimed *{{< tracked-anchor href="https://www.viz.com/shonenjump/chapters/dragon-ball" text="Dragon Ball" >}}* franchise. For general information about the project, [read the project overview.]({{< ref "projects/dbz-radar/dbz-radar-overview/" >}}) If you want deep technical details, read [the latest developer log.]({{< ref "/projects/dbz-radar/dbz-radar-devlog-2/" >}})
 
 Before you begin, you'll need to acquire some tools and parts. The files to manufacture the 3D[^1] printed components and PCBA[^2] are available on the {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar/" text="project's repository." >}}
 
@@ -98,7 +98,7 @@ Not required, but useful tools:
 
 - Needle nose pliers
 
-## Program board
+## Flashing Firmware
 
 {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar/src/branch/main/bin/" text="Using the binary file in the project's repository" >}}, {{< tracked-anchor href="https://learn.adafruit.com/circuitpython-with-esp32-quick-start/installing-circuitpython/" text="follow the instructions provided by Adafruit to install CircuitPython on the board." >}} Once complete, drag-and-drop the source code available on the {{< tracked-anchor href="https://codeberg.org/extralongdivision/dbz-radar/" text="project's repository." >}} After firmware upload, a heartbeat LED[^3] will blink once the board recieves power.
 
