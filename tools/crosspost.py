@@ -9,12 +9,12 @@ from markdownify import markdownify as md
 from photo_converter import PhotoConverter
 
 
-def get_url(string: str) -> str:
+def get_urls(string: str) -> list[str]:
     """Extracts url, returns input otherwise"""
-    match = re.search(r"(?<=\().*?(?=\))", string)
-    if match is None:
-        return string
-    return match.group()
+    match = re.findall(r"(?<=\().*?(?=\))", string)
+    if len(match) == 0:
+        return [string]
+    return match
 
 def is_file(string: str) -> bool:
     filename = string.split(os.sep)[-1]
@@ -77,22 +77,24 @@ class URLBuilder:
         # line contains my domain name
 
         # check if url has utms
-        url = get_url(line)
-        if self._domain not in url:
-            return line  # this isn't a link to my domain
+        urls = get_urls(line)
+        for url in urls:
+            if self._domain not in url:
+                continue  # this isn't a link to my domain
 
-        if "?" in url and "utm" in url:
-            return line  # already has utm parameters
+            if "?" in url and "utm" in url:
+                continue  # already has utm parameters
 
-        # check if a file not a url
-        if is_file(url):  # url is for a file
-            filename = url.split(os.sep)[-1]
-            if ".html" not in filename or ".xml" not in filename:
-                return line  # a media file, ignore
-        # an ugly url or rss file, still needs utm
+            # check if a file not a url
+            if is_file(url):  # url is for a file
+                filename = url.split(os.sep)[-1]
+                if ".html" not in filename or ".xml" not in filename:
+                    continue # a media file, ignore
+            # an ugly url or rss file, still needs utm
 
-        new_url = self.syndication_url(url=url, utm_content=utm_content)
-        return line.replace(url, new_url)
+            new_url = self.syndication_url(url=url, utm_content=utm_content)
+            line = line.replace(url, new_url)
+        return line
 
     def _query(self, source: str, medium: str, campaign: str = "", uid: str = "", content: str = "", is_paid: bool = False) -> str:
         if "social" in medium.lower():  # posting to social medium
@@ -194,7 +196,7 @@ class Crosspost:
         return line.replace(key, self._canonical_domain)
 
     def _init_build_dir(self) -> None:
-        shutil.rmtree(self._build_dir)
+        shutil.rmtree(self._build_dir, ignore_errors=True)
         try:
             os.makedirs(self._build_dir)
         except FileExistsError:
@@ -225,30 +227,31 @@ class Crosspost:
         return port
 
     def _replace_img_url(self, line: str) -> str:
-        url = get_url(line)
+        urls = get_urls(line)
         new_line = line
-        if url != line and url.endswith("webp"):
-            img_relpath_after_root = url.split(self._canonical_domain)[-1]
-            root_dir = ""
-            found_root = False
-            for d in self._input_filepath.split(os.sep):
-                if d not in img_relpath_after_root:
-                    root_dir += d + os.sep
-                    continue
-                found_root = True
-                break
-            if not found_root:
-                root_dir = "../public/"
+        for url in urls:
+            if url != line and url.endswith("webp"):
+                img_relpath_after_root = url.split(self._canonical_domain)[-1]
+                root_dir = ""
+                found_root = False
+                for d in self._input_filepath.split(os.sep):
+                    if d not in img_relpath_after_root:
+                        root_dir += d + os.sep
+                        continue
+                    found_root = True
+                    break
+                if not found_root:
+                    root_dir = "../public/"
 
-            old_ext = "webp"
-            new_ext = "png"
-            img_relpath_from_script = root_dir + img_relpath_after_root
-            new_img_relpath_from_script = img_relpath_from_script.replace(old_ext, new_ext)
-            relpath_to_html = os.path.commonpath([self._input_filepath, img_relpath_from_script]) + os.sep
-            img_relpath_from_html = new_img_relpath_from_script.replace(relpath_to_html, "")
-            new_img_relpath_from_html = img_relpath_from_html.replace(old_ext, new_ext)
-            new_line = line.replace(url, new_img_relpath_from_html)
-            PhotoConverter.convert(img_relpath_from_script, self._build_dir + img_relpath_from_html)
+                old_ext = "webp"
+                new_ext = "png"
+                img_relpath_from_script = root_dir + img_relpath_after_root
+                new_img_relpath_from_script = img_relpath_from_script.replace(old_ext, new_ext)
+                relpath_to_html = os.path.commonpath([self._input_filepath, img_relpath_from_script]) + os.sep
+                img_relpath_from_html = new_img_relpath_from_script.replace(relpath_to_html, "")
+                new_img_relpath_from_html = img_relpath_from_html.replace(old_ext, new_ext)
+                new_line = line.replace(url, new_img_relpath_from_html)
+                PhotoConverter.convert(img_relpath_from_script, self._build_dir + img_relpath_from_html)
         return new_line
 
     def _md_filepath(self, html_filepath: str) -> str:
