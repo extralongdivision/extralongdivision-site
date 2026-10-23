@@ -88,8 +88,6 @@ params:
       url: "https://medium.com/@extralongdivision"
     - name: "ycombinator"
       url: "https://news.ycombinator.com/user?id=extralongdivisi"  # no trailing slash because it 404s
-    - name: "instructables"
-      url: "https://www.instructables.com/member/extralongdivision/"
     - name: "hackaday"
       url: "https://hackaday.io/extralongdivision/"
     - name: "hackster"
@@ -98,6 +96,8 @@ params:
       url: "https://adafruit-playground.com/u/extralongdivision/"
     - name: "makerio"
       url: "https://www.digikey.com/en/maker/profiles/df3ddcebf1274e2cafc4454c381b2362/"
+    - name: "instructables"
+      url: "https://www.instructables.com/member/extralongdivision/"
     - name: "makerpro"
       url: "https://maker.pro/profile/extralongdivision/"
     - name: "thingiverse"
