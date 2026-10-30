@@ -1,6 +1,6 @@
 ---
-date: '2026-10-27 18:38:35 +0000 UTC'
-draft: true
+date: '2026-10-30 08:38:35 +0000 UTC'
+draft: false
 title: 'What if the Dragon Ball Radar Was Real?'
 #
 # EDIT THESE
