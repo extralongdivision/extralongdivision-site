@@ -11,6 +11,14 @@ jobs:
         with:
           submodules: true
       - run: |
+          echo "Downloading Go..."
+          wget -q https://go.dev/dl/go1.27.1.linux-amd64.tar.gz
+          echo "Installing Go..."
+          rm -rf /usr/local/go && tar -C /usr/local -xzf go1.27.1.linux-amd64.tar.gz
+          echo "Adding Go to PATH..."
+          export PATH=$PATH:/usr/local/go/bin
+          export PATH="$PATH:$(go env GOPATH)/bin"
+          go version
           echo "Downloading Hugo..."
           wget -q https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz
           echo "Uncompressing Hugo..."
