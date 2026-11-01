@@ -6,7 +6,7 @@ title: 'What if the Dragon Ball Radar Was Real?'
 # EDIT THESE
 #
 author: 'Extra Long Division'
-tags: ['dragon-ball-radar', 'video']
+tags: ['dragon-ball-radar', 'video', 'vertical-video']
 series: ['Dragon Radar']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
