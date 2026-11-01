@@ -46,6 +46,7 @@ do
         s3_filename=${line/$input_dir_start/}
         if [ "$wet_run" == 1 ]; then
             aws s3 cp ${line} s3://media/${s3_filename} --profile fastly-us-west-1
+            rm ${line}
         else
             echo "Would've uploaded ${s3_filename}"
         fi
