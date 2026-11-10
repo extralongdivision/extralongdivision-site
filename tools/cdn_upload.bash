@@ -48,7 +48,7 @@ do
             aws s3 cp ${line} s3://media/${s3_filename} --profile fastly-us-west-1
             rm ${line}
         else
-            echo "Would've uploaded ${s3_filename}"
+            echo "Would've uploaded ${s3_filename}. Use '-w' to push to production."
         fi
     # else
     #     echo "Skipping $line. It is not a file"
