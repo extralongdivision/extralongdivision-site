@@ -1,6 +1,6 @@
 ---
 date: '2026-11-10 04:00:41 +0000 UTC'
-draft: true
+draft: false
 title: 'LARPing with a Dragon Ball Radar'
 #
 # EDIT THESE
