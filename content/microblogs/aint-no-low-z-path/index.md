@@ -9,7 +9,7 @@ author: 'Extra Long Division'
 tags: ['meme', 'video', 'vertical-video', 'impedance']
 # description: 'I forgot to fill out the description.'
 # URL is based off the filename
-canonicalURL: 'https://extralongdivision.com/articles/aint-no-low-z-path/'
+canonicalURL: 'https://extralongdivision.com/microblogs/aint-no-low-z-path/'
 # author: ["Me", "You"] # multiple authors
 
 #
@@ -45,7 +45,7 @@ cover:
 
 Enjoy the meme. Explaination below the video.
 
-{{< video-js src="https://cdn.extralongdivision.com/articles/aint-no-low-z-path/media/master.m3u8" >}}
+{{< video-js src="https://cdn.extralongdivision.com/microblogs/aint-no-low-z-path/media/master.mp4" >}}
 
 An inductor is a passive element that impedes changes to electrical current. It does so by generating a magnetic field which in turn induces a negative potential relative to the external changing electrical current. This is also known as “back EMF” or back electro-motive-force. In the case of direct current, DC, the magnetic field (and thus back-EMF) produced by the inductor eventually collapses once the potential of the DC voltage source stabilizes. However, alternating current, AC, is constantly changing thus an inductor continuously produces back EMF and thus blocks AC voltage sources.
 
