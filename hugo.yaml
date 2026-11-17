@@ -142,6 +142,7 @@ params:
   # Custom variables to use everywhere
   articles_path: "articles/"
   projects_path: "projects/"
+  microblogs_path: "microblogs/"
   emdash_slug: "idgaf-im-still-using-the-emdash"
   jargon_slug: "please-define-your-jargon"
   images_dir: "images/"  # in deployed directory, not in repo
