@@ -1,6 +1,6 @@
 ---
 date: '2026-11-17 02:57:31 +0000 UTC'
-draft: true
+draft: false
 title: 'No AI in the Big 2026'
 #
 # EDIT THESE
@@ -29,11 +29,11 @@ ShowPostNavLinks: true
 ShowWordCount: false
 ShowRssButtonInSectionTermList: true
 UseHugoToc: false
-# cover:
-#    image: "<image path/url>" # image path/url
-#    alt: "<alt text>" # alt text
+cover:
+   image: "cover.webp" # image path/url
+   alt: "point of view photo of someone typing" # alt text
 #    caption: "<text>" # display caption under cover
-#    relative: false # when using page bundles set this to true
+   relative: true # when using page bundles set this to true
 #    hidden: true # only hide on current single page
 # editPost:
 #    URL: "https://github.com/<path_to_repo>/content"
