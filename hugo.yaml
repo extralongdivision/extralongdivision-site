@@ -50,8 +50,8 @@ params:
     imageWidth: 128 # custom size
     imageHeight: 128 # custom size
     buttons:
-    - name: Dragon Ball Radar
-      url: projects/dbz-radar/dbz-radar-overview/  # FIXME WET canonicalURL
+    - name: Fantasy Footaball Ticker
+      url: projects/ff-ticker/ff-ticker-short-form-video-1/  # FIXME WET canonicalURL
     - name: Subscribe via RSS
       url: "https://cloud.umami.is/q/OqNJhRxBC" # FIXME WET archive RSS parameter
 
